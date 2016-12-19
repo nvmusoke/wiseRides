@@ -3,22 +3,23 @@ var	Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
 
 var DriverInfo = new mongoose.Schema({
-	firstName: { type: String, required: true },
-	lastName: { type: String, required: true },
-	password: { type: String, required: true },
-	birthday: { type: String, required: true },
-	email: { type: String, required: true },
-	phoneNumber: { type: String, required: true },
-	profileImage: { type: String, required: true },
-	notifications: { type: String, required: true },
-	licensePlate: { type: String, required: true },
-	make: { type: String, required: true },
-	model: { type: String, required: true },
-	color: { type: String, required: true },
-	wheelChairAccess: { type: String, required: true },
-	cargoSpace: { type: String, required: true },
-	lowRise: { type: String, required: true },
-	stepAssistance: { type: String, required: true }
+	firstName: String,
+	lastName: String,
+	password: String,
+	birthday: Date,
+	email: String,
+	phoneNumber: String,
+	profileImage: String,
+	notifications: Boolean,
+	licensePlate: String,
+	make: String,
+	model: String,
+	color: String,
+	wheelChairAccess: String,
+	cargoSpace: String,
+	lowRise: String,
+	stepAssistance: String,
+	created: Date
 });
 
 var DriverModel = mongoose.model('driver', DriverInfo);

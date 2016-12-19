@@ -20,26 +20,9 @@ router.get('/driver/:driverId', function(req,res){
 	});
 });
 
-// "firstName": "Luke",
-// "lastName": "Popwell",
-// "password": "password",
-// "birthday": "06/08/1981",
-// "email": "lukepopwell@mac.com",
-// "phoneNumber": "334-332-6441",
-// "profileImage": "image placeholder",
-// "notifications": "text",
-// "licensePlate": "too cold to go outside",
-// "make": "make",
-// "model": "yes please",
-// "color": "colorblind",
-// "wheelChairAccess": "no",
-// "cargoSpace": "no junk in my trunk",
-// "lowRise": "yes",
-// "stepAssistance": "yes"
-
 //POST a new driver
-router.post('/', function(req, res, next){
-	console.log('got driver by Id');
+router.post('/driver-app-pg1', function(req, res, next){
+	console.log('new driver created');
 	var driverInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -47,8 +30,25 @@ router.post('/', function(req, res, next){
 		birthday: req.body.birthday,
 		email: req.body.email,
 		phoneNumber: req.body.phoneNumber,
+		notifications: req.body.notifications
+	};
+
+	var newDriver = new DriverModel(driverInfo);
+
+	newDriver.save(function(err,success){
+		console.log('New Driver Created!!');
+		if (err) console.log(err);
+
+		res.send('New Driver Created');
+		// res.redirect('/');
+	});
+});
+
+//PUT a change into driver info
+router.put('/driver/:driverId/driver-app-pg3', function(req, res, next){
+	var driverId = req.params.driverId;
+	var updateInfo = {
 		profileImage: req.body.profileImage,
-		notifications: req.body.notifications,
 		licensePlate: req.body.licensePlate,
 		make: req.body.make,
 		model: req.body.model,
@@ -59,19 +59,15 @@ router.post('/', function(req, res, next){
 		stepAssistance: req.body.stepAssistance
 	};
 
-	var newDriver = new DriverModel(driverInfo);
-
-	newDriver.save(function(err,success){
-		console.log('New Driver Created!!');
-		if (err) console.log(err);
-
-		res.redirect('/');
+	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
+		if(err) console.error(err);
+		res.send('SUCCESS');
 	});
 });
 
 //PUT a change into driver info
 router.put('/driver/:driverId', function(req, res, next){
-	var driverId = req.body.driverId;
+	var driverId = req.params.driverId;
 	var updateInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -99,8 +95,8 @@ router.put('/driver/:driverId', function(req, res, next){
 
 //DELETE a driver by Id
 router.delete('/driver/:driverId', function(req, res, next){
-	var driverId = req.body.driverId;
-	DriverModel.findByIdAndRemove(driverId, function(err,driverInfo){
+	var driverId = req.params.driverId;
+	DriverModel.findByIdAndRemove(driverId, function(err, driverInfo){
 		if(err) console.error(err);
 
 		res.send('SUCCESS');
