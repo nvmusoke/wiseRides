@@ -113,11 +113,20 @@ a {
    border-radius: 50px;
  }
 #info-btn{
-width: 50px;
-height: 50px;
-padding: 10px 16px;
-font-size: 25px;
-line-height: 1.33;
-border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 25px;
+  line-height: 1.33;
+  border-radius: 25px;
 
+}
+.info #backarrow{
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 25px;
+  line-height: 1.33;
+  border-radius: 25px;
+  margin: 0 auto;
 }
