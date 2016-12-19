@@ -109,6 +109,10 @@ router.get('/driver-schedule-built',function(req, res){
 
 //passenger application routes
 
+router.get('/passenger-verify',function(req, res){
+    res.render('passenger-verify');
+  });
+
 router.get('/passenger-error',function(req, res){
     res.render('passenger-error');
   });
