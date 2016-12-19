@@ -41,7 +41,7 @@ router.get('/passenger/:passengerId', function(req,res){
     // "stepAssistance": "yes"
 
 //POST  a new passenger
-router.post('/passengerapp_pg1', function(req, res, next){
+router.post('/passenger-app-pg1', function(req, res, next){
 	console.log('new page route working');
 	var passengerInfo = {
 		firstName: req.body.firstName,
@@ -98,7 +98,11 @@ router.put('/passenger/:passengerId', function(req, res, next){
 	});
 });
 
-router.put("/passengerapp_pg2")
+router.put("/passenger-app-pg2", function (req, res, next) {
+	
+});
+
+
 router.delete('/passenger/:passengerId', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	PassengerModel.findByIdAndRemove(passengerId, function(err,passengerInfo){

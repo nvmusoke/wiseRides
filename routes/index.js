@@ -89,4 +89,7 @@ router.get('/passenger-app-pg2', function(req, res, next) {
 router.get('/passenger-app-done', function(req, res, next) {
   res.render('passenger-app-done');
 });
+router.get('/info', function(req, res, next) {
+  res.render('info');
+});
 module.exports = router;
