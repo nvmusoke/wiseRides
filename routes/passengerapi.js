@@ -98,6 +98,7 @@ router.put('/passenger/:passengerId', function(req, res, next){
 	});
 });
 
+router.put("/passengerapp_pg2")
 router.delete('/passenger/:passengerId', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	PassengerModel.findByIdAndRemove(passengerId, function(err,passengerInfo){
