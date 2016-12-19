@@ -34,6 +34,7 @@
     width: 100%;
     margin-left: auto ;
     margin-right: auto ;
+		background-color: #3E1B2C;
 }
 .navbar ul {
     list-style-type: none; /*to remove bullets*/

@@ -2,16 +2,16 @@
 
 ####Brand colors
 
-Meteor #DB7B14
+Meteor (orange) #DB7B14
 219, 123, 20
 
-Tawny Port #3E1B2C
+Tawny Port (purple) #3E1B2C
 62, 27, 44
 
 White #FFFFFF
 255, 255, 255
 
-Bone #E4D4C0
+Bone (tan) #E4D4C0
 228, 212, 192
 
 ####Error message color
