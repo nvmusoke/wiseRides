@@ -23,23 +23,6 @@ router.get('/passenger/:passengerId', function(req,res){
 	});
 });
 
-
-		// "firstName": "Luke",
-    // "lastName": "Popwell",
-    // "password": "password",
-    // "birthday": "06/08/1981",
-    // "email": "lukepopwell@mac.com",
-    // "streetAddress": "1500 fake lane",
-    // "city": "Austin",
-    // "state": "TX",
-    // "phoneNumber": "334-332-6441",
-    // "profileIMage": "image placeholder",
-    // "notifications": "text",
-    // "wheelchairAccess": "no",
-    // "cargoSpace": "no junk in my trunk",
-    // "lowRise": "yes",
-    // "stepAssistance": "yes"
-
 //POST  a new passenger
 router.post('/passenger-app-pg1', function(req, res, next){
 	console.log('new page route working');
@@ -49,16 +32,8 @@ router.post('/passenger-app-pg1', function(req, res, next){
 		password: req.body.password,
 		birthday: req.body.birthday,
 		email: req.body.email,
-		streetAddress: req.body.streetAddress,
-		city: req.body.city,
-		state: req.body.state,
 		phoneNumber: req.body.phoneNumber,
-		profileImage: req.body.profileImage,
-		notifications: req.body.notifications,
-		wheelChairAccess: req.body.wheelChairAccess,
-		cargoSpace: req.body.cargoSpace,
-		lowRise: req.body.lowRise,
-		stepAssistance: req.body.stepAssistance
+		notifications: req.body.notifications
 	};
 
 	var newPassenger = new PassengerModel(passengerInfo);
@@ -66,8 +41,29 @@ router.post('/passenger-app-pg1', function(req, res, next){
 	newPassenger.save(function(err,success){
 		console.log('New passenger created');
 		if(err) console.error(err);
-		// res.send('New Passenger Created');
-		res.redirect('/');
+		res.send('New Passenger Created');
+		// res.redirect('/');
+	});
+});
+
+// New passenger page 2
+router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next){
+	console.log('new passenger updated by :id');
+	var passengerId = req.params.passengerId;
+	var updateInfo = {
+		streetAddress: req.body.streetAddress,
+		city: req.body.city,
+		state: req.body.state,
+		profileImage: req.body.profileImage,
+		wheelChairAccess: req.body.wheelChairAccess,
+		cargoSpace: req.body.cargoSpace,
+		lowRise: req.body.lowRise,
+		stepAssistance: req.body.stepAssistance
+	};
+
+	PassengerModel.findByIdAndUpdate(passengerId,updateInfo, function(err,passengerInfo){
+		if(err) console.error(err);
+		res.send('SUCCESS');
 	});
 });
 
@@ -99,7 +95,7 @@ router.put('/passenger/:passengerId', function(req, res, next){
 });
 
 router.put("/passenger-app-pg2", function (req, res, next) {
-	
+
 });
 
 
