@@ -24,36 +24,36 @@ router.get('/signup',
   });
 
 //driver routes
-router.get('/driverapp_pg1',function(req, res){
-    res.render('driverapp_pg1');
+router.get('/driver-app-pg1',function(req, res){
+    res.render('driver-app-pg1');
   });
 
-router.get('/driverapp_pg2',function(req, res){
-    res.render('driverapp_pg2');
+router.get('/driver-app-pg2',function(req, res){
+    res.render('driver-app-pg2');
   });
 
-router.get('/driverapp_pg3',function(req, res){
-    res.render('driverapp_pg3');
+router.get('/driver-app-pg3',function(req, res){
+    res.render('driver-app-pg3');
   });
 
-router.get('/driverapp_done',function(req, res){
-    res.render('driverapp_done');
+router.get('/driver-app-done',function(req, res){
+    res.render('driver-app-done');
   });
 
 
 
 //passenger routes
 
-router.get('/passengerapp_pg1',function(req, res){
-  	res.render('passengerapp_pg1');
+router.get('/passenger-app-pg1',function(req, res){
+  	res.render('passenger-app-pg1');
 });
 
-router.get('/passengerapp_pg2',function(req, res){
-    res.render('passengerapp_pg2');
+router.get('/passenger-app-pg2',function(req, res){
+    res.render('passenger-app-pg2');
   });
 
-router.get('/passengerapp_done',function(req, res){
-    res.render('passengerapp_done');
+router.get('/passenger-app-done',function(req, res){
+    res.render('passenger-app-done');
   });
 
 
@@ -70,23 +70,23 @@ router.get('/callback',
   });
 
 
-router.get('/passengerno', function (req, res) {
-  res.render('passengerno');
+router.get('/passenger-error', function (req, res) {
+  res.render('passenger-error');
 });
 
-router.get('/passengerverify', function(req, res, next) {
-  res.render('passengerverify');
+router.get('/passenger-verify', function(req, res, next) {
+  res.render('passenger-verify');
 });
 
 
-router.get('/passengerapp_pg1', function(req, res, next) {
-  res.render('passengerapp_pg1');
+router.get('/passenger-app-pg1', function(req, res, next) {
+  res.render('passenger-app-pg1');
 });
 
-router.get('/passengerapp_pg2', function(req, res, next) {
-  res.render('passengerapp_pg2');
+router.get('/passenger-app-pg2', function(req, res, next) {
+  res.render('passenger-app-pg2');
 });
-router.get('/passengerapp_done', function(req, res, next) {
-  res.render('passengerapp_done');
+router.get('/passenger-app-done', function(req, res, next) {
+  res.render('passenger-app-done');
 });
 module.exports = router;
