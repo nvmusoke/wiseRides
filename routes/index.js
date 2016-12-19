@@ -209,10 +209,14 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+
+
+
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
     res.redirect(req.session.returnTo || '/user');
   });
+
 
 module.exports = router;
