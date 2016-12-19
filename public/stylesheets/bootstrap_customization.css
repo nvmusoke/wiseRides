@@ -1,0 +1,49 @@
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+	body {
+	  font-family: Helvetica, Arial, sans-serif;
+		background: url("/images/mobile-photobackground.png") no-repeat center center fixed;
+		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  text-align: center;
+	}
+}
+.navbar {
+    width: 100%;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+.navbar ul {
+    list-style-type: none; /*to remove bullets*/
+    text-align: center;
+    padding: 0px;
+    zoom:1;
+    overflow: hidden;
+}
+.navbar li{
+    padding: 15px 0 5px 0;
+    width: 20%;
+    display:inline-block;
+}

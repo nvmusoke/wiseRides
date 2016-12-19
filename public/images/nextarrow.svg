@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="28px" viewBox="0 0 29 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Next Arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="-32" y="-11" width="213" height="52"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="213" height="52" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <use id="Rectangle-2" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#DD7C00" xlink:href="#path-1"></use>
+        <g id="Next-Arrow" stroke-linecap="round" stroke="#FFFFFF" stroke-width="3">
+            <g id="Group-2-Copy" transform="translate(15.000000, 14.500000) scale(-1, 1) translate(-15.000000, -14.500000) translate(2.000000, 3.000000)">
+                <path d="M10.5,11.5 L0.5,22.5" id="Line-Copy" transform="translate(5.500000, 17.000000) scale(1, -1) translate(-5.500000, -17.000000) "></path>
+                <path d="M25.5,11.5 L2.5,11.5" id="Line-Copy-2" transform="translate(14.000000, 11.500000) scale(1, -1) translate(-14.000000, -11.500000) "></path>
+                <path d="M10.5,0.5 L0.5,11.5" id="Line"></path>
+            </g>
+        </g>
+    </g>
+</svg>

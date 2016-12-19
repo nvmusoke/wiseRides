@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="64px" viewBox="0 0 56 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>profile.active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="profile.active" fill="#DD7C00">
+            <path d="M45.9373022,19.2 C45.9373022,29.7955556 37.8464528,38.4 27.8833407,38.4 C17.9202285,38.4 9.82937908,29.7955556 9.82937908,19.2 C9.82937908,8.60444444 17.9202285,0 27.8833407,0 C37.8464528,0 45.9373022,8.60444444 45.9373022,19.2 Z M27.8833407,41.3866667 C18.0539616,41.3866667 0,45.7244444 0,64 L55.6998148,64 C55.7666813,45.7244444 37.7127197,41.3866667 27.8833407,41.3866667 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
