@@ -213,6 +213,13 @@ router.get('/info', function(req, res, next) {
   res.render('info');
 });
 
+router.get('/faq', function(req, res, next) {
+  res.render('faq');
+});
+
+router.get('/driver-ridepage-with-appt', function(req, res, next) {
+  res.render('driver-ridepage-with-appt');
+});
 
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
