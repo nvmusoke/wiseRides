@@ -35,15 +35,6 @@ body {
     display: block;
   }
 
-#landing #login-btn{
-    color: black;
-    border: solid black 2px;
-    box-shadow: 5px 5px 2px black;
-    margin: 15px 0;
-    font-size: 20px;
-    padding: 14px 24px;
-  }
-=======
 
 
 a {
@@ -55,33 +46,25 @@ a {
   display: block;
 }
 
-#landing #login-btn{
-  color: black;
-  border: solid black 2px;
-  box-shadow: 5px 5px 2px black;
+#login-btn{
+  color: #FFF;
+  background-color: #DB7B14;
+  border: solid #FFF 2px;
   margin: 15px 0;
-  font-size: 20px;
+  font-family: 'Helvetica', sans-serif;
   padding: 14px 24px;
 }
 
-#landing #signup-btn{
-  color:black;
-  border: solid black 2px;
-  box-shadow: 5px 5px 2px black;
+#signup-btn{
+  color:#FFF;
+  background-color: #DB7B14;
+  border: solid #FFF 2px;
   margin: 25px 0;
-  font-size: 20px;
+  font-family: 'Helvetica', sans-serif;
   padding: 12px 22px;
 }
 
 
-#landing #signup-btn{
-    color:black;
-    border: solid black 2px;
-    box-shadow: 5px 5px 2px black;
-   margin: 25px 0;
-   font-size: 20px;
-   padding: 12px 22px;
- }
  .passVerify{
    text-align: center;
    position: absolute;
