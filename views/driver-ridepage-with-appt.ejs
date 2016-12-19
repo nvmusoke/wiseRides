@@ -1,6 +1,21 @@
 <% include partials/header %>
 <% include partials/navbar %>
 
+<h3>Your Next Ride</h3>
+  <ul>
+    <li>Today with: **passenger first name** </li>
+    <li>Pick up time between: </li>
+    <li>Pick up at: </li>
+    <li>Drop off at: </li>
+  </ul>
+
+  <a href="/passenger-profile-public" method="post" type="submit" class="btn btn-default btn-lg">View Rider Profile</a>
+  <a href="/driver-ridepage-without-appt" method="post" type="submit" class="btn btn-default btn-lg">Cancel This Ride</a>
+  (At least 48 hours prior to ride)
+
+  <a href="/passenger-profile-public" method="post" type="submit" class="btn btn-default btn-lg"><img src="../images/backarrow.png" method="post"></a>
+  <a href="/passenger-profile-public" method="post" type="submit" class="btn btn-default btn-lg"><img src="../images/nextarrow.png" method="post"></a>
+
 
 
 <% include partials/footer %>
