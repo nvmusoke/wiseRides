@@ -15,10 +15,10 @@ var PassengerInfo = new mongoose.Schema({
   phoneNumber: String,
   profileImage: String,
   notifications: Boolean,
-  wheelChairAccess: String,
-  cargoSpace: String,
-  lowRise: String,
-  stepAssistance: String,
+  wheelChairAccess: Boolean,
+  cargoSpace: Boolean,
+  lowRise: Boolean,
+  stepAssistance: Boolean,
 	created: Date
 });
 

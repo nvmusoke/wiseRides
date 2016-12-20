@@ -15,10 +15,10 @@ var DriverInfo = new mongoose.Schema({
 	make: String,
 	model: String,
 	color: String,
-	wheelChairAccess: String,
-	cargoSpace: String,
-	lowRise: String,
-	stepAssistance: String,
+	wheelChairAccess: Boolean,
+	cargoSpace: Boolean,
+	lowRise: Boolean,
+	stepAssistance: Boolean,
 	created: Date
 });
 

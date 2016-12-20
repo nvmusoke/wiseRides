@@ -9,7 +9,7 @@ router.get('/passenger', function(req, res, next) {
 	PassengerModel.find({}, '', function(err,passenger){
 		console.log('passenger model', passenger);
 		if(err) console.error('Error getting passenger:', err);
-
+		console.log(passenger);
 		res.json(passenger);
 	});
 });
@@ -18,7 +18,7 @@ router.get('/passenger', function(req, res, next) {
 router.get('/passenger/:passengerId', function(req,res){
 	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
 		if (err) console.log(err);
-
+		console.log(passenger);
 		res.json(passenger);
 	});
 });
