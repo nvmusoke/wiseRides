@@ -4,29 +4,29 @@ $(function(){
 		function loadPassenger(){
 	  $.get('/passenger-app-done',function(res){
 
-	    res.forEach(function(passenger, index){
-	      var firstName = passenger.firstName;
-	      var lastName = passenger.lastName;
-	      var email = passenger.email;
-	      var id = passenger._id;
-
-	      var passengerInfo = [
-	        '<li>',
-	          '<div class="passenger" data-passengerid=',id,'>',
-	              '<section class="firstName">',firstName,'</section>',
-	              '<section class="lastName">',lastName,'</section>',
-	              '<section class="email">',email,'</section>',
-	              '<a class="edit-info" href="#">Edit </a>',
-	              '<a class="delete-account" href="#">Delete</a>',
-	            '</div>',
-	          '</li>'
-	      ].join('');
-
-	      $('.main-content').find('ul.passenger').prepend(passengerInfo);
-	    });
-
-	  });
-	};
+	//     res.forEach(function(passenger, index){
+	//       var firstName = passenger.firstName;
+	//       var lastName = passenger.lastName;
+	//       var email = passenger.email;
+	//       var id = passenger._id;
+	//
+	//       var passengerInfo = [
+	//         '<li>',
+	//           '<div class="passenger" data-passengerid=',id,'>',
+	//               '<section class="firstName">',firstName,'</section>',
+	//               '<section class="lastName">',lastName,'</section>',
+	//               '<section class="email">',email,'</section>',
+	//               '<a class="edit-info" href="#">Edit </a>',
+	//               '<a class="delete-account" href="#">Delete</a>',
+	//             '</div>',
+	//           '</li>'
+	//       ].join('');
+	//
+	//       $('.main-content').find('ul.passenger').prepend(passengerInfo);
+	//     });
+	//
+	//   });
+	// };
 
 	function addEventListeners(){
 
