@@ -1,10 +1,10 @@
 body {
    font-family: Helvetica, Arial, sans-serif;
-  background: url("/images/desktop-photobackground.png") no-repeat center center fixed;
+  /*background: url("/images/desktop-photobackground.png") no-repeat center center fixed;
   -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
-   background-size: cover;
+   background-size: cover;*/
    text-align: center;
  }
 
@@ -165,7 +165,10 @@ a {
   padding: 14px 80px;
   border-radius: 50px;
 }
-#bettywhite{
- max-width: 20%;
- max-height: 20%;
+.passenger-private{
+  background-color: #E4D4C0;
+}
+.accessibility-private{
+color: #3E1B2C;
+font-size: 20px;
 }

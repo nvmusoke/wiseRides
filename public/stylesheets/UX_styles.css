@@ -59,7 +59,7 @@ h2 {
 
 body {
 	font-family: Helvetica, Arial, sans-serif;
-	background: url("/images/desktop-photobackground.png") no-repeat center center fixed;
+	/*background: url("/images/desktop-photobackground.png") no-repeat center center fixed;*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -87,8 +87,16 @@ body {
 	max-height: 100%;
 }
 #bettywhite{
- max-width: 20%;
- max-height: 20%;
+	max-width: 20%;
+	max-height: 20%;
+	border: solid #3E1B2C 4px;
+	position: fixed;
+	top: 10%;
+	left: 10%;
+	width: 300px;
+
+
+
 }
 
 @media (max-width: 480px) {
@@ -186,14 +194,16 @@ body {
 	input {
 		margin-bottom: 20px;
 	}
-}
-#landing-logo{
-	max-width: 50%;
-	max-height: 50%;
-}
 
-#bettywhite{
- max-width: 40%;
- max-height: 40%;
- border-color: #3E1B2C;
+	#landing-logo{
+		max-width: 50%;
+		max-height: 50%;
+	}
+
+	#bettywhite{
+	 max-width: 40%;
+	 max-height: 40%;
+	 position: static;
+	 border-color: #3E1B2C;
+	}
 }
