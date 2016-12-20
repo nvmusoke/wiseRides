@@ -64,6 +64,7 @@ router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next)
 	PassengerModel.findByIdAndUpdate(passengerId,updateInfo, function(err,passengerInfo){
 		if(err) console.error(err);
 		res.send('SUCCESS');
+		res.redirect('/passenger-app-done');
 	});
 });
 
@@ -92,10 +93,6 @@ router.put('/passenger/:passengerId', function(req, res, next){
 		if(err) console.error(err);
 		res.send('SUCCESS');
 	});
-});
-
-router.put("/passenger-app-pg2", function (req, res, next) {
-
 });
 
 

@@ -62,6 +62,7 @@ router.put('/driver/:driverId/driver-app-pg3', function(req, res, next){
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
 		res.send('SUCCESS');
+		// res.redirect('/');
 	});
 });
 

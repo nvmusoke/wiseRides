@@ -13,6 +13,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', env: env });
 });
 
+router.get('/calendar',function(req, res){
+    res.render('calendar');
+  });
+
 router.get('/info',function(req, res){
     res.render('info');
   });
@@ -30,7 +34,7 @@ router.get('/faq',function(req, res){
   });
 
 router.get('/login',function(req, res){
-    res.render('login');
+    res.render('login', { title: 'Login', env: env });
   });
 
 router.get('/onboarding',function(req, res){
@@ -109,6 +113,10 @@ router.get('/driver-schedule-built',function(req, res){
 
 //passenger application routes
 
+router.get('/passenger-verify',function(req, res){
+    res.render('passenger-verify');
+  });
+
 router.get('/passenger-error',function(req, res){
     res.render('passenger-error');
   });
@@ -136,18 +144,18 @@ router.get('/passenger-profile-public',function(req, res){
 });
 
 router.get('/passenger-ride-with-appt',function(req, res){
-    res.render('ppassenger-ride-with-appt');
+    res.render('passenger-ride-with-appt');
   });
 
-router.get('passenger-ride-without-appt',function(req, res){
+router.get('/passenger-ride-without-appt',function(req, res){
     res.render('passenger-ride-without-appt');
   });
 
-router.get('passenger-unfulfilled-ride-request',function(req, res){
+router.get('/passenger-unfulfilled-ride-request',function(req, res){
     res.render('passenger-unfulfilled-ride-request');
   });
 
-router.get('passenger-schedule-built',function(req, res){
+router.get('/passenger-schedule-built',function(req, res){
     res.render('passenger-schedule-built');
   });
 
