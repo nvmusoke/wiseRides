@@ -45,6 +45,7 @@ h2 {
 	size: 20px;
 	line-height: 1.2em;
 }
+/*Landing page css*/
 
 #pass-app-pg1 .btn-lg {
 	background: #DB7B14;
@@ -88,10 +89,10 @@ body {
 }
 #bettywhite{
 	max-width: 20%;
-	max-height: 20%;
+	max-height: 25%;
 	border: solid #3E1B2C 4px;
 	position: fixed;
-	top: 10%;
+	top: 30%;
 	left: 10%;
 	width: 300px;
 
