@@ -13,6 +13,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', env: env });
 });
 
+router.get('/calendar',function(req, res){
+    res.render('calendar');
+  });
+
 router.get('/info',function(req, res){
     res.render('info');
   });
