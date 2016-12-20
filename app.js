@@ -89,7 +89,12 @@ app.use('/', routes);
 app.use('/user', user);
 app.use('/passengerapi', passengerApi);
 app.use('/driverapi', driverApi);
-
+app.get('/driverapi/:id', function(req, res) {
+    var driverId = req.params.id;
+});
+app.get('/passengerapi/:id', function(req, res) {
+    var passengerId = req.params.id;
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

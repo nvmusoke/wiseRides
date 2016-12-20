@@ -22,7 +22,7 @@ var PassengerInfo = new mongoose.Schema({
 	created: Date
 });
 
-var PassengerModel = mongoose.model('Passenger', PassengerInfo);
+var PassengerModel = mongoose.model('passenger', PassengerInfo);
 
 // Make this available to our other files
 module.exports = PassengerModel;

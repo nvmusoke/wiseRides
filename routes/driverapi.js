@@ -3,22 +3,22 @@ var router = express.Router();
 var DriverModel = require('../models/driver');
 
 //GET all drivers
-router.get('/driver', function(req, res, next){
-	DriverModel.find({}, '', function(err,drivers){
+router.get('/driver-profile-private', function(req, res, next){
+	DriverModel.find({}, '', function(err,driver){
 		if(err) console.error('Error getting drivers:', err);
-
-		res.json(drivers);
+		console.log(driver);
+		res.json(driver);
 	});
 });
 
 //GET a driver by Id
-router.get('/driver/:driverId', function(req,res){
-	DriverModel.findById(req.params.DriverId, '', function(err, driver){
-			if (err) console.log(err);
-
-			res.json(driver);
-	});
-});
+// router.get('/driver-profile-private', function(req,res){
+// 	DriverModel.findById(req.body.driverId, '', function(err, driver){
+// 			if (err) console.log('error getting driver by id', err);
+// 			console.log('returned driver by id');
+// 			res.json(driver);
+// 	});
+// });
 
 //POST a new driver
 router.post('/driver-app-pg1', function(req, res, next){
@@ -67,8 +67,8 @@ router.put('/driver/:driverId/driver-app-pg3', function(req, res, next){
 });
 
 //PUT a change into driver info
-router.put('/driver/:driverId', function(req, res, next){
-	var driverId = req.params.driverId;
+router.put('/', function(req, res, next){
+	var driverId = req.body.driverId;
 	var updateInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -90,13 +90,14 @@ router.put('/driver/:driverId', function(req, res, next){
 
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
+		console.log(driverInfo);
 		res.send('SUCCESS');
 	});
 });
 
 //DELETE a driver by Id
-router.delete('/driver/:driverId', function(req, res, next){
-	var driverId = req.params.driverId;
+router.delete('/', function(req, res, next){
+	var driverId = req.body.driverId;
 	DriverModel.findByIdAndRemove(driverId, function(err, driverInfo){
 		if(err) console.error(err);
 
