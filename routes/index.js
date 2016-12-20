@@ -144,7 +144,7 @@ router.get('/passenger-profile-public',function(req, res){
 });
 
 router.get('/passenger-ride-with-appt',function(req, res){
-    res.render('ppassenger-ride-with-appt');
+    res.render('passenger-ride-with-appt');
   });
 
 router.get('passenger-ride-without-appt',function(req, res){
