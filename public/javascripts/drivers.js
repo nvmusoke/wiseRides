@@ -55,11 +55,11 @@ $(function(){
 			var email = $driver.find('.email').text();
 
 	    $driver.html( [
-				'<li>',
-					'<div class="driver" data-driverid=',driverId,'>',
-	      '<input class="edit-firstName" name="title" value="',firstName,'"/>',
-	      '<input class="edit-lastName" name="content" value="',lastName,'"/>',
-				'<input class="edit-email" name="content" value="',email,'"/>',
+			'<li>',
+				'<div class="driver" data-driverid=',driverId,'>',
+		      '<input class="edit-firstName" name="title" value="',firstName,'"/>',
+		      '<input class="edit-lastName" name="content" value="',lastName,'"/>',
+					'<input class="edit-email" name="content" value="',email,'"/>',
 				'</div>',
 			'</li>',
 			'<button class="send-update">Update</button>'
