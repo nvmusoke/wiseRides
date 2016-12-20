@@ -30,7 +30,7 @@ router.get('/faq',function(req, res){
   });
 
 router.get('/login',function(req, res){
-    res.render('login');
+    res.render('login', { title: 'Login', env: env });
   });
 
 router.get('/onboarding',function(req, res){
