@@ -1,24 +1,20 @@
 <% include partials/header %>
-<body class="passenger-private">
-
-
-<% include partials/navbar %>
+<body class="tan">
+<% include partials/passenger-navbar %>
 
 <img id="bettywhite" src="/images/passenger-photo.jpg" alt="Betty White">
-<div class="accessibility-private">
-  Accessibility Needs:
+<h3>Betty</h3>
+<h4>Phone: 512-111-2345</h4>
+  <div class="accessibility-private">
+    Accessibility Needs:
 
-    <label><input type="checkbox" value="Wheelchair Accessible">Wheelchair Accessible</label>
-
-
-    <label><input type="checkbox" value="Cargo space">Cargo space for medical supplies</label>
-
-
-    <label><input type="checkbox" value="Low-rise vehicle" >Low-rise vehicle</label>
-
+      <label><input type="checkbox" value="Wheelchair Accessible">Wheelchair Accessible</label>
+      <label><input type="checkbox" value="Cargo space">Cargo space for medical supplies</label>
+      <label><input type="checkbox" value="Low-rise vehicle" >Low-rise vehicle</label>
       <label><input type="checkbox" value="Step Assistance" >Step Assistance</label>
 
-</div>
+  </div>
+  <a class="btn btn-default btn-lg" id="signup-btn" href="/settings" role="button">Edit Profile</a><br><br>
 
 </body>
 <% include partials/footer %>

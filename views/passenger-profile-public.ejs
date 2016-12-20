@@ -1,7 +1,25 @@
 <% include partials/header %>
-<body>
-<% include partials/navbar %>
+<body class="tan">
+
+
+<% include partials/passenger-navbar %>
+
+<img id="bettywhite" src="/images/passenger-photo.jpg" alt="Betty White">
+  <h3>Betty</h3>
+  <h4>Phone: 512-111-2345</h4>
+  <div class="accessibility-private">
+    Accessibility Needs:
+
+      <label><input type="checkbox" value="Wheelchair Accessible">Wheelchair Accessible</label>
+      <label><input type="checkbox" value="Cargo space">Cargo space for medical supplies</label>
+      <label><input type="checkbox" value="Low-rise vehicle" >Low-rise vehicle</label>
+      <label><input type="checkbox" value="Step Assistance" >Step Assistance</label>
+
+  </div>
+    <a class="btn btn-default btn-lg"  href="tel:+5551234567" role="button">Call</a><br><br>
+    <a class="btn btn-default btn-lg"  href="sms:1-555-123-4567" role="button">Text</a><br><br>
 
 
 
+</body>
 <% include partials/footer %>

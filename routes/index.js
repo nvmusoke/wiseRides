@@ -144,18 +144,18 @@ router.get('/passenger-profile-public',function(req, res){
 });
 
 router.get('/passenger-ride-with-appt',function(req, res){
-    res.render('ppassenger-ride-with-appt');
+    res.render('passenger-ride-with-appt');
   });
 
-router.get('passenger-ride-without-appt',function(req, res){
+router.get('/passenger-ride-without-appt',function(req, res){
     res.render('passenger-ride-without-appt');
   });
 
-router.get('passenger-unfulfilled-ride-request',function(req, res){
+router.get('/passenger-unfulfilled-ride-request',function(req, res){
     res.render('passenger-unfulfilled-ride-request');
   });
 
-router.get('passenger-schedule-built',function(req, res){
+router.get('/passenger-schedule-built',function(req, res){
     res.render('passenger-schedule-built');
   });
 
