@@ -76,7 +76,7 @@ a {
  #age-yes {
    color: #FFF;
    font-size: 20px;
-  
+
  }
 
  #age-no{
@@ -164,4 +164,8 @@ a {
   font-family: 'Helvetica', sans-serif;
   padding: 14px 80px;
   border-radius: 50px;
+}
+#bettywhite{
+ max-width: 20%;
+ max-height: 20%;
 }
