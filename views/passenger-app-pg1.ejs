@@ -1,51 +1,53 @@
 <% include partials/header %>
-<body class="purple">
-
-<div class="container-fluid" id="pass-app-pg1">
-	<div class="passengertxt">
-		<p>Thank you for signing up with wise<strong class="passStrong">Rides</strong>! Please fill out the necessary account information below.</p>
+<body class="purple-background">
+	<div class="header-text">
+		<p>Thank you for signing up with wise<strong class="passStrong">Rides</strong>! Please fill out the necessary information below to start the application process.</p>
 	</div>
-	<form class="form-inline" method="post" action="/passengerapi">
-		<div class="form-group">
+  <div class="container-fluid col-xs-offset-1" id="application-pg1">
+	<form class="form-inline" action="/driver-app-pg1">
+		<div class="form-group no-bottom-padding">
 	    <label for="firstName">First Name</label><br>
-	    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name">
-	    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name">
+	    <input type="text" name="firstName" class="form-control width-control" method="post" style="width: 44%" placeholder="First Name">
+	    <input type="text" name="lastName" class="form-control width-control" method="post" style="width: 44%" placeholder="Last Name">
 	  </div>
+	</form>
+
+	<form class="form-inline no-bottom-padding">
 
 		<label for="birthday">Date of Birth</label><br>
-		<input type="date" name="birthday" class="form-control" id="birthday" placeholder="Date of Birth">
+		<input type="date" name="birthday" class="form-control width-control" method="post" id="birthday" placeholder="Date of Birth">
 
 		<label for="password">Password</label><br>
-		<input type="mixed" name="password" class="form-control" id="password" placeholder="Password">
+		<input type="mixed" name="password" class="form-control width-control" method="post" id="password" placeholder="Password">
 
     <label for="email">Email address</label>
-    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+    <input type="email" name="email" class="form-control width-control" method="post" id="email" placeholder="Email">
 
     <label for="phone">Phone Number</label>
-    <input type="phone" name="phone" class="form-control" id="phone" placeholder="(xxx)-xxx-xxxx">
+    <input type="phone" name="phone" class="form-control width-control" method="post" id="phone" placeholder="(xxx)-xxx-xxxx">
 	  <!-- <div class="form-group">
 	    <label for="exampleInputFile">File input</label>
 	    <input type="file" id="exampleInputFile">
 	    <p class="help-block">Example block-level help text here.</p>
 	  </div> -->
-		<p class="notifications">Notification preferences:</p>
+
+		<p class="title">Notification preferences:</p>
 	  <div class="checkbox">
 		    <label>
-		      <input type="checkbox" name="emailCheck" class="box"><p>Email</p>
+		      <input type="checkbox" name="emailCheck" method="post" class="box"><p>Email</p>
 		    </label>
 				<label>
-		      <input type="checkbox" name="textCheck" class="box"> <p>Text</p>
+		      <input type="checkbox" name="textCheck" method="post" class="box"> <p>Text</p>
 		    </label>
 	  </div>
-			<!-- <input type="submit" class="btn btn-default btn-lg" href="#"> -->
-		<div class="container">
-		  <button type="submit" id="passButton" value="save" class="btn btn-default btn-lg"><img src="../images/nextarrow.png" type="submit" value="save"></button>
+
+		<div class="col-xs-offset-4">
+		  <a href="/passenger-app-pg2"  id="passButton" type="submit" class="btn btn-default btn-lg"><img src="../images/nextarrow.png" method="post"></a>
 		</div>
 
 
 
 	</form>
-		<p class="passTxt">Just a bit further</p>
 </div>
 
 
