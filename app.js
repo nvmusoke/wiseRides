@@ -34,10 +34,10 @@ var session = require('express-session');
 
 
 // adding jwt to link user sign in Id with database
-// var jwtCheck = jwt({
-//   secret: process.env.AUTH0_CLIENT_SECRET,
-//   audience: process.env.AUTH0_CLIENT_ID
-// });
+var jwtCheck = jwt({
+  secret: process.env.AUTH0_CLIENT_SECRET,
+  audience: process.env.AUTH0_CLIENT_ID
+});
 
 // This will configure Passport to use Auth0
 var strategy = new Auth0Strategy({

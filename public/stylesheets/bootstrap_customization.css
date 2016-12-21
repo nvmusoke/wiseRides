@@ -22,7 +22,7 @@
 @media (max-width: 480px) {
 	body {
 	  font-family: Helvetica, Arial, sans-serif;
-		background: url("/images/mobile-photobackground.png") no-repeat center center fixed;
+		/*background: url("/images/mobile-photobackground.png") no-repeat center center fixed;*/
 		-webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -47,4 +47,8 @@
     padding: 15px 0 5px 0;
     width: 20%;
     display:inline-block;
+}
+
+.submit {
+		margin-left: 10px;
 }
