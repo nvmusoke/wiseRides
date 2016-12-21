@@ -5,7 +5,7 @@ var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
 // GET all passengers
-router.get('/passenger', function(req, res, next) {
+router.get('/passenger-profile-private', function(req, res, next) {
 	PassengerModel.find({}, '', function(err,passenger){
 		console.log('passenger model', passenger);
 		if(err) console.error('Error getting passenger:', err);
@@ -18,12 +18,12 @@ router.get('/passenger', function(req, res, next) {
 router.get('/passenger/:passengerId', function(req,res){
 	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
 		if (err) console.log(err);
-		console.log(passenger);
+		// console.log(passenger);
 		res.json(passenger);
 	});
 });
 
-//POST  a new passenger
+//POST a new passenger
 router.post('/passenger-app-pg1', function(req, res, next){
 	console.log('new page route working');
 	var passengerInfo = {
@@ -45,6 +45,7 @@ router.post('/passenger-app-pg1', function(req, res, next){
 		// res.redirect('/');
 	});
 });
+
 
 // New passenger page 2
 router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next){
@@ -69,7 +70,7 @@ router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next)
 });
 
 //PUT a change into passenger info
-router.put('/passenger/:passengerId', function(req, res, next){
+router.put('/', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		firstName: req.body.firstName,
@@ -96,8 +97,8 @@ router.put('/passenger/:passengerId', function(req, res, next){
 });
 
 
-router.delete('/passenger/:passengerId', function(req, res, next){
-	var passengerId = req.params.passengerId;
+router.delete('/', function(req, res, next){
+	var passengerId = req.body.passengerId;
 	PassengerModel.findByIdAndRemove(passengerId, function(err,passengerInfo){
 		if(err) console.error(err);
 

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var DriverModel = require('../models/driver');
+var Driver = require('../models/driver');
+var Trip = require('../models/trip');
 
 //GET all drivers
 router.get('/driver-profile-private', function(req, res, next){
@@ -11,14 +13,6 @@ router.get('/driver-profile-private', function(req, res, next){
 	});
 });
 
-//GET a driver by Id
-// router.get('/driver-profile-private', function(req,res){
-// 	DriverModel.findById(req.body.driverId, '', function(err, driver){
-// 			if (err) console.log('error getting driver by id', err);
-// 			console.log('returned driver by id');
-// 			res.json(driver);
-// 	});
-// });
 
 //POST a new driver
 router.post('/driver-app-pg1', function(req, res, next){
