@@ -1,7 +1,7 @@
 <% include partials/header %>
 
 <body class="purple-background">
-	<div class="passengertxt">
+	<div class="header-text">
 		<p>Almost done! Now we just need some information about your vehicle.</p>
 	</div>
 
@@ -9,28 +9,75 @@
   <form class="form-inline">
   <div class="form-group">
     <div class="col-xs-7" style="padding-right: 5px;">
-      <label class="plain-text" for="exampleInputName2">Licence Plate Number</label>
+      <label class="white-text" for="exampleInputName2">Licence Plate Number</label>
       <input type="text" class="form-control width-control" id="exampleInputName2" placeholder="Jane Doe">
     </div>
   </div>
   <div class="dropdown">
     <div class="col-xs-4" style="padding-right: 5px;">
-      <label class="plain-text" for="dropdownState">State</label>
+      <label class="white-text" for="dropdownState">State</label>
     <button class="btn btn-default dropdown-toggle scrollable-menu" data-toggle="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       Dropdown
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
+    <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">AL</a></li>
+      <li><a href="#">AK</a></li>
+      <li><a href="#">AZ</a></li>
+			<li><a href="#">AR</a></li>
+			<li><a href="#">CA</a></li>
+			<li><a href="#">CO</a></li>
+			<li><a href="#">CT</a></li>
+			<li><a href="#">DE</a></li>
+			<li><a href="#">FL</a></li>
+			<li><a href="#">GA</a></li>
+			<li><a href="#">HI</a></li>
+			<li><a href="#">ID</a></li>
+			<li><a href="#">IL</a></li>
+			<li><a href="#">IN</a></li>
+			<li><a href="#">IA</a></li>
+			<li><a href="#">KS</a></li>
+			<li><a href="#">KY</a></li>
+			<li><a href="#">LA</a></li>
+			<li><a href="#">ME</a></li>
+			<li><a href="#">MD</a></li>
+			<li><a href="#">MA</a></li>
+			<li><a href="#">MI</a></li>
+			<li><a href="#">MN</a></li>
+			<li><a href="#">MS</a></li>
+			<li><a href="#">MO</a></li>
+			<li><a href="#">MT</a></li>
+			<li><a href="#">NE</a></li>
+			<li><a href="#">NV</a></li>
+			<li><a href="#">NH</a></li>
+			<li><a href="#">NJ</a></li>
+			<li><a href="#">NM</a></li>
+			<li><a href="#">NY</a></li>
+			<li><a href="#">NC</a></li>
+			<li><a href="#">ND</a></li>
+			<li><a href="#">OH</a></li>
+			<li><a href="#">OK</a></li>
+			<li><a href="#">OR</a></li>
+			<li><a href="#">PA</a></li>
+			<li><a href="#">RI</a></li>
+			<li><a href="#">SC</a></li>
+			<li><a href="#">SD</a></li>
+			<li><a href="#">TN</a></li>
+			<li><a href="#">TX</a></li>
+			<li><a href="#">UT</a></li>
+			<li><a href="#">VT</a></li>
+			<li><a href="#">VA</a></li>
+			<li><a href="#">WA</a></li>
+			<li><a href="#">WV</a></li>
+			<li><a href="#">WI</a></li>
+			<li><a href="#">WY</a></li>
+
     </ul>
     </div>
   </div>
-    <div class="col-xs-offset-2">
-     <label for="carPhoto" class="plain-text insert-margin">Photo of Car</label>
+	<br>
+
+     <label for="carPhoto" class="white-text insert-margin" style="margin-left: 0;">Photo of Car</label>
      <br>
      </div>
      <div id="upload-btn" class="fileUpload btn btn-default">
@@ -63,7 +110,8 @@
         <p>Step assistance</p>
       </label>
     </div>
-<a href="/driver-app-done" type="submit" class="btn-orange-lg" style="margin-top: 0;" method="post">Submit</a>
+		</div>
+		<a class="btn-orange-lg" href="/driver-app-done" role="button">Submit</a><br>
 </div>
 </form>
 
