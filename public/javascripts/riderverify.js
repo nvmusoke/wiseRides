@@ -1,5 +1,5 @@
 $(function () {
-
+	console.log('loaded riderverify.js');
   // $('.age-verify').on('click',function () {
   //
   // var yes = document.getElementById("yes");
