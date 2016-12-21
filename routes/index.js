@@ -49,6 +49,10 @@ router.get('/signup',function(req, res){
     res.render('signup');
   });
 
+router.get('/signin',function(req, res){
+    res.render('signin');
+  });
+
 // driver application routes
 
 router.get('/driver-app-pg1',function(req, res){
