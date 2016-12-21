@@ -1,6 +1,40 @@
 <% include partials/header %>
-<body>
+<body class="tan">
 <% include partials/driver-navbar %>
 
+<img id="bettywhite" src="/images/profile-active.png" alt="Driver Name">
+<h3>Driver Name</h3>
+<h4>Phone: 512-111-2345</h4>
+  <div class="accessibility-private">
+    Accessibility Options:
 
+    <div class="col-xs-offset-2" style="text-align: left; color: black;">
+        <div class="checkbox">
+          <label>
+            <input class="box" type="checkbox" value="">
+            <p>Wheelchair accessible</p>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input class="box" type="checkbox" value="">
+            <p>Cargo space for medical supplies</p>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input class="box" type="checkbox" value="">
+            <p>Low-rise vehicle</p>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input class="box no-bottom-padding" type="checkbox" value="">
+            <p>Step assistance</p>
+          </label>
+        </div>
+  </div>
+  <a class="btn btn-default btn-lg" id="signup-btn" style="margin-top: 0;" href="/settings" role="button">Edit Profile</a><br><br>
+
+</body>
 <% include partials/footer %>
