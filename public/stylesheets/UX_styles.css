@@ -8,7 +8,6 @@
 
 h2 {
 	color: #DB7B14;
-	background: #FFFFFF;
 	font: Helvetica;
 	size: 24px;
 	line-height: 1.2em;
@@ -183,7 +182,7 @@ body {
 		width: 25px;
 	}
 	.checkbox p {
-		margin: 10px;
+		margin-left: 10px;
 		font-size: 14px;
 		padding: 5px;
 	}

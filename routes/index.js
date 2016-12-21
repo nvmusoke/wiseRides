@@ -99,16 +99,12 @@ router.get('/driver-schedule',function(req, res){
     res.render('driver-schedule');
   });
 
-router.get('/driver-schedule-builder-day',function(req, res){
-    res.render('driver-schedule-builder-day');
+router.get('/driver-schedule-builder',function(req, res){
+    res.render('driver-schedule-builder');
   });
 
-router.get('/driver-schedule-builder-time',function(req, res){
-    res.render('driver-schedule-builder-time');
-  });
-
-router.get('/driver-schedule-built',function(req, res){
-    res.render('driver-schedule-built');
+router.get('/driver-schedule',function(req, res){
+    res.render('driver-schedule');
   });
 
 //passenger application routes
@@ -155,8 +151,8 @@ router.get('/passenger-unfulfilled-ride-request',function(req, res){
     res.render('passenger-unfulfilled-ride-request');
   });
 
-router.get('/passenger-schedule-built',function(req, res){
-    res.render('passenger-schedule-built');
+router.get('/passenger-schedule',function(req, res){
+    res.render('passenger-schedule');
   });
 
 //ride request routes
@@ -203,12 +199,8 @@ router.get('/ride-req-unfulfilled',function(req, res){
 
 // calender routes
 
-router.get('/ride-request-cal',function(req, res){
-    res.render('ride-request-cal');
-  });
-
-router.get('/ride-req-unfulfilled',function(req, res){
-    res.render('ride-req-unfulfilled');
+router.get('/ride-request',function(req, res){
+    res.render('ride-request');
   });
 
 // redirects

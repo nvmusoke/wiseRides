@@ -1,5 +1,71 @@
 <% include partials/header %>
-<body>
+
+<body class="purple">
+	<div class="passengertxt">
+		<p>Almost done! Now we just need some information about your vehicle.</p>
+	</div>
+
+
+  <form class="form-inline">
+  <div class="form-group">
+    <div class="col-xs-7" style="padding-right: 5px;">
+      <label class="plain-text" for="exampleInputName2">Licence Plate Number</label>
+      <input type="text" class="form-control width-control" id="exampleInputName2" placeholder="Jane Doe">
+    </div>
+  </div>
+  <div class="dropdown">
+    <div class="col-xs-4" style="padding-right: 5px;">
+      <label class="plain-text" for="dropdownState">State</label>
+    <button class="btn btn-default dropdown-toggle scrollable-menu" data-toggle="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+    </div>
+  </div>
+    <div class="col-xs-offset-2">
+     <label for="carPhoto" class="plain-text insert-margin">Photo of Car</label>
+     <br>
+     </div>
+     <div id="upload-btn" class="fileUpload btn btn-default">
+      <span>Upload</span>
+      <input type="file" class="upload" />
+    </div>
+     <p class="help-block" style="margin-bottom: 20px;">Upload a photo of your car.</p>
+<div class="col-xs-offset-2" style="text-align: left; color: white;">
+    <div class="checkbox">
+      <label>
+        <input class="box" type="checkbox" value="">
+        <p>Wheelchair accessible</p>
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input class="box" type="checkbox" value="">
+        <p>Cargo space for medical supplies</p>
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input class="box" type="checkbox" value="">
+        <p>Low-rise vehicle</p>
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input class="box no-bottom-padding" type="checkbox" value="">
+        <p>Step assistance</p>
+      </label>
+    </div>
+<a href="/driver-app-done" id="signup-driver" type="submit" class="btn btn-default btn-lg" style="margin-top: 0;" method="post">Submit</a>
+</div>
+</form>
 
 
 <% include partials/footer %>
