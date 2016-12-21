@@ -1,8 +1,11 @@
 <% include partials/header %>
 <body class="tan-background">
 <% include partials/navbar %>
-  <video src="" autoplay poster=""></video>
-  <a class="btn btn-default btn-lg" id="login-btn" href="/login" role="button">Play Again</a><br>
-  <a class="btn btn-default btn-lg" id="login-btn" href="/passenger-profile-private" role="button">Start Riding</a><br>
-
+  <div class="">
+    <video id="tutorial-video"src="/videos/drive.ogv" autoplay>This video is not supported on your browser</video>
+  </div>
+  <div>
+    <a class="btn btn-default btn-lg btn-orange-default" id="replay"   onClick="window.location.reload()" role="button">Play Again</a><br>
+    <a class="btn btn-default btn-lg btn-orange-default" id="login-btn" href="/passenger-profile-private" role="button">Start Riding</a><br>
+  </div>
 <% include partials/footer %>

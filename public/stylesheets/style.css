@@ -203,7 +203,7 @@ font-size: 20px;
   margin-bottom: 0;
 }
 
-/* applicatoin pg 1 */
+/* application pg 1 */
 #application-pg1 {
   color: #FFFFFF;
   background: #3E1B2C;
@@ -250,17 +250,6 @@ font-size: 20px;
 
 @media (max-width: 480px) {
 
-	#passButton {
-		background: #DB7B14;
-		width: 50px;
-	  height: 50px;
-	  padding: 10px 16px;
-	  font-size: 18px;
-	  line-height: 1.33;
-	  border-radius: 25px;
- 		margin: 0 auto;
-	}
-
 	.main-h1 {
 		color: white;
 		size: 34px;
@@ -284,12 +273,28 @@ font-size: 20px;
 		color: #DB7B14;
 	}
 
+	#passButton {
+		background: #DB7B14;
+		width: 50px;
+	  height: 50px;
+	  padding: 10px 16px;
+	  font-size: 18px;
+	  line-height: 1.33;
+	  border-radius: 25px;
+ 		margin: 0 auto;
+	}
 	#bettywhite{
 	 max-width: 40%;
 	 max-height: 40%;
 	 position: static;
 	 border-color: #3E1B2C;
 	}
+
+  #tutorial-video{
+max-width: 70%;
+max-width: 70%;
+  }
+
 }
 
 .scrollable-menu {
