@@ -203,8 +203,8 @@ router.get('/ride-req-unfulfilled',function(req, res){
 
 // calender routes
 
-router.get('/ride-request-cal',function(req, res){
-    res.render('ride-request-cal');
+router.get('/ride-request',function(req, res){
+    res.render('ride-request');
   });
 
 router.get('/ride-req-unfulfilled',function(req, res){
