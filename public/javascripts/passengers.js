@@ -43,18 +43,6 @@ $(function(){
 
 	function addEventListeners(){
 
-		$('#passButton').on('click', function(){
-			var passenger = new Passenger();
-					passenger.firstName = req.body.firstName,
-		      passenger.lastName = req.body.lastName;
-
-					passenger.save(function(){
-						res.json(passenger);
-					});
-		});
-
-
-
 	  $('body').on('click','a.edit-passenger',function(event){
 	    event.preventDefault();
 
