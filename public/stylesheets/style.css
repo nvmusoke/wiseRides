@@ -124,10 +124,10 @@ input {
   border: solid #FFF 2px;
   margin: 0 auto;
   font-family: 'Helvetica', sans-serif;
-  padding: 14px 20px;
+  padding: 16px 20px;
   border-radius: 50px;
   display: block;
-  width: 75%;
+  width: 70%;
 }
 
 .btn-orange-default {
@@ -290,4 +290,10 @@ font-size: 20px;
 	 position: static;
 	 border-color: #3E1B2C;
 	}
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
 }
