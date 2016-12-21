@@ -1,32 +1,45 @@
 $(function(){
-	console.log('loaded passengers.js');
+	console.log('loaded passenger.js');
 
-		function loadPassenger(){
-	  $.get('/passenger-app-done',function(res){
+		function loadPassengers(){
+	  $.get('/passengerapi/passenger-profile-private',function(res){
 
-	//     res.forEach(function(passenger, index){
-	//       var firstName = passenger.firstName;
-	//       var lastName = passenger.lastName;
-	//       var email = passenger.email;
-	//       var id = passenger._id;
-	//
-	//       var passengerInfo = [
-	//         '<li>',
-	//           '<div class="passenger" data-passengerid=',id,'>',
-	//               '<section class="firstName">',firstName,'</section>',
-	//               '<section class="lastName">',lastName,'</section>',
-	//               '<section class="email">',email,'</section>',
-	//               '<a class="edit-info" href="#">Edit </a>',
-	//               '<a class="delete-account" href="#">Delete</a>',
-	//             '</div>',
-	//           '</li>'
-	//       ].join('');
-	//
-	//       $('.main-content').find('ul.passenger').prepend(passengerInfo);
-	//     });
-	//
-	//   });
-	// };
+	    res.forEach(function(passenger, index){
+	      var firstName = passenger.firstName;
+	      var lastName = passenger.lastName;
+	      var password = passenger.password;
+				var birthday = passenger.birthday;
+	      var email = passenger.email;
+	      var streetAddress = passenger.streetAddress;
+				var city = passenger.city;
+	      var state = passenger.state;
+	      var phoneNumber = passenger.phoneNumber;
+				var profileImage = passenger.profileImage;
+	      var notifications = passenger.notifications;
+	      var wheelChairAccess = passenger.wheelChairAccess;
+				var cargoSpace = passenger.cargoSpace;
+	      var lowRise = passenger.lowRise;
+	      var stepAssistance = passenger.stepAssistance;
+				var passengerId = passenger._id;
+
+	      var PassengerInfo = [
+	        '<li>',
+	          '<div class="passenger" data-passengerid=',passengerId,'>',
+	              '<section class="firstName">',firstName,'</section>',
+	              '<section class="lastName">',lastName,'</section>',
+								'<section class="password">',password,'</section>',
+	              '<section class="birthday">',birthday,'</section>',
+	              '<section class="email">',email,'</section>',
+	              '<a class="edit-passenger" href="/passenger-profile-private">Edit </a>',
+	              '<a class="delete-account" href="#">Delete</a>',
+	            '</div>',
+	          '</li>'
+	      ].join('');
+				// console.log(PassengerInfo);
+	      $('.main-content').find('.passenger').prepend(PassengerInfo);
+	    });
+	  });
+	};
 
 	function addEventListeners(){
 
@@ -36,13 +49,19 @@ $(function(){
 	    var $passenger = $(this).closest('.passenger');
 	    var passengerId = $passenger.data('passengerid');
 
-	    var passengerFirstName = $passenger.find('.firstName').text();
-	    var passengerLastName = $passenger.find('.lastName').text();
+	    var firstName = $passenger.find('.firstName').text();
+	    var lastName = $passenger.find('.lastName').text();
+			var email = $passenger.find('.email').text();
 
 	    $passenger.html( [
-	      '<input class="edit-firstName" name="title" value="',passengerFirstName,'"/>',
-	      '<input class="edit-lastName" name="content" value="',passengerLastName,'"/>',
-	      '<button class="send-update">Update</button>'
+			'<li>',
+				'<div class="passenger" data-passengerid=',passengerId,'>',
+		      '<input class="edit-firstName" name="title" value="',firstName,'"/>',
+		      '<input class="edit-lastName" name="content" value="',lastName,'"/>',
+					'<input class="edit-email" name="content" value="',email,'"/>',
+				'</div>',
+			'</li>',
+			'<button class="send-update">Update</button>'
 	    ].join('') );
 
 	  });
@@ -51,30 +70,37 @@ $(function(){
 	    e.preventDefault();
 
 	    var $passenger = $(this).closest('.passenger');
-	    var passengerFirstName = $passenger.find('.edit-firstName').val();
-	    var passengerLastName = $passenger.find('.edit-lastName').val();
+	    var firstName = $passenger.find('.edit-firstName').val();
+	    var lastName = $passenger.find('.edit-lastName').val();
+			var email = $passenger.find('.edit-email').val();
 	    var passengerId = $passenger.data('passengerid');
 
 	    console.log('firstName: ', firstName);
 	    console.log('lastName: ', lastName);
 
 	    var updatePassenger = $.ajax({
-	      url: '/passenger-profile-private',
+	      url: '/passengerapi',
 	      method: 'PUT',
 	      data: {
 	        firstName: firstName,
 	        lastName: lastName,
-	        id: id
+					email: email,
+	        passengerId: passengerId
 	      }
 	    });
 
 	    updatePassenger.done(function(res){
 	      console.log(res);
 	      $passenger.html( [
-	        '<section class="firstName">',firstName,'</section>',
-	        '<section class="lastName">',lastName,'</section>',
-	        '<a class="edit-info" href="#">Edit </a>',
-	        '<a class="delete-account" href="#">Delete</a>',
+					'<li>',
+	          '<div class="passenger" data-passengerid=',passengerId,'>',
+	              '<section class="firstName">',firstName,'</section>',
+	              '<section class="lastName">',lastName,'</section>',
+	              '<section class="email">',email,'</section>',
+	              '<a class="edit-passenger" href="/passenger-profile-private">Edit </a>',
+	              '<a class="delete-account" href="#">Delete</a>',
+	            '</div>',
+	          '</li>'
 	      ].join('') );
 	    });
 
@@ -83,12 +109,35 @@ $(function(){
 	    });
 	  });
 
+		// Delete Post
+	$('body').on('click','.delete-account',function(e){
+		var $passenger = $(this).closest('.passenger');
+		var passengerId = $passenger.data('passengerid');
+
+		if(!confirm('Are you sure you want to delete this account??')) return;
+
+		var removePassenger = $.ajax({
+			method: 'DELETE',
+			url: '/passengerapi',
+			data: { passengerId: passengerId }
+		});
+
+		removePassenger.done(function(response){
+			$passenger.closest('li').remove();
+			console.log('Passenger remove success: ', response);
+		});
+
+		removePassenger.fail(function(error){
+			console.error('Passenger remove fail: ', error);
+		});
+	});
+
 
 	};
 
 	function main(){
 	  addEventListeners();
-	  loadPassenger();
+	  loadPassengers();
 	}
 
 	main();

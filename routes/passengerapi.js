@@ -5,11 +5,11 @@ var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
 // GET all passengers
-router.get('/passenger', function(req, res, next) {
+router.get('/passenger-profile-private', function(req, res, next) {
 	PassengerModel.find({}, '', function(err,passenger){
-		console.log('passenger model', passenger);
+		// console.log('passenger model', passenger);
 		if(err) console.error('Error getting passenger:', err);
-
+		// console.log(passenger);
 		res.json(passenger);
 	});
 });
@@ -18,13 +18,13 @@ router.get('/passenger', function(req, res, next) {
 router.get('/passenger/:passengerId', function(req,res){
 	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
 		if (err) console.log(err);
-
+		// console.log(passenger);
 		res.json(passenger);
 	});
 });
 
-//POST  a new passenger
-router.post('/passenger-app-pg1', function(req, res, next){
+//POST a new passenger
+router.post('/', function(req, res, next){
 	console.log('new page route working');
 	var passengerInfo = {
 		firstName: req.body.firstName,
@@ -35,20 +35,22 @@ router.post('/passenger-app-pg1', function(req, res, next){
 		phoneNumber: req.body.phoneNumber,
 		notifications: req.body.notifications
 	};
+	console.log('firstName: ', req.body.firstName);
 
 	var newPassenger = new PassengerModel(passengerInfo);
 
 	newPassenger.save(function(err,success){
 		console.log('New passenger created');
 		if(err) console.error(err);
-		res.send('New Passenger Created');
-		// res.redirect('/');
+		// res.send(newPassenger);
+		res.redirect('/passenger-app-pg2');
 	});
 });
 
+
 // New passenger page 2
 router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next){
-	console.log('new passenger updated by :id');
+	// console.log('new passenger updated by :id');
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		streetAddress: req.body.streetAddress,
@@ -69,7 +71,7 @@ router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next)
 });
 
 //PUT a change into passenger info
-router.put('/passenger/:passengerId', function(req, res, next){
+router.put('/', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		firstName: req.body.firstName,
@@ -96,8 +98,8 @@ router.put('/passenger/:passengerId', function(req, res, next){
 });
 
 
-router.delete('/passenger/:passengerId', function(req, res, next){
-	var passengerId = req.params.passengerId;
+router.delete('/', function(req, res, next){
+	var passengerId = req.body.passengerId;
 	PassengerModel.findByIdAndRemove(passengerId, function(err,passengerInfo){
 		if(err) console.error(err);
 

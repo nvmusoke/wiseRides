@@ -5,27 +5,24 @@
 	<div class="passengertxt">
 		<p>Thank you for signing up with wise<strong class="passStrong">Rides</strong>! Please fill out the necessary account information below.</p>
 	</div>
-	<form class="form-inline" action="/passenger-app-pg1">
+	<form class="form-inline" method="post" action="/passengerapi">
 		<div class="form-group">
 	    <label for="firstName">First Name</label><br>
-	    <input type="text" name="firstName" class="form-control" method="post" id="firstName" placeholder="First Name">
-	    <input type="text" name="lastName" class="form-control" method="post" id="lastName" placeholder="Last Name">
+	    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name">
+	    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name">
 	  </div>
-	</form>
-
-	<form class="form-inline">
 
 		<label for="birthday">Date of Birth</label><br>
-		<input type="date" name="birthday" class="form-control" method="post" id="birthday" placeholder="Date of Birth">
+		<input type="date" name="birthday" class="form-control" id="birthday" placeholder="Date of Birth">
 
 		<label for="password">Password</label><br>
-		<input type="mixed" name="password" class="form-control" method="post" id="password" placeholder="Password">
+		<input type="mixed" name="password" class="form-control" id="password" placeholder="Password">
 
     <label for="email">Email address</label>
-    <input type="email" name="email" class="form-control" method="post" id="email" placeholder="Email">
+    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
 
     <label for="phone">Phone Number</label>
-    <input type="phone" name="phone" class="form-control" method="post" id="phone" placeholder="(xxx)-xxx-xxxx">
+    <input type="phone" name="phone" class="form-control" id="phone" placeholder="(xxx)-xxx-xxxx">
 	  <!-- <div class="form-group">
 	    <label for="exampleInputFile">File input</label>
 	    <input type="file" id="exampleInputFile">
@@ -34,15 +31,15 @@
 		<p class="notifications">Notification preferences:</p>
 	  <div class="checkbox">
 		    <label>
-		      <input type="checkbox" name="emailCheck" method="post" class="box"><p>Email</p>
+		      <input type="checkbox" name="emailCheck" class="box"><p>Email</p>
 		    </label>
 				<label>
-		      <input type="checkbox" name="textCheck" method="post" class="box"> <p>Text</p>
+		      <input type="checkbox" name="textCheck" class="box"> <p>Text</p>
 		    </label>
 	  </div>
-
+			<!-- <input type="submit" class="btn btn-default btn-lg" href="#"> -->
 		<div class="container">
-		  <a href="/passenger-app-pg2"  id="passButton" method="post" type="submit" class="btn btn-default btn-lg"><img src="../images/nextarrow.png" method="post"></a>
+		  <button type="submit" id="passButton" value="save" class="btn btn-default btn-lg"><img src="../images/nextarrow.png" type="submit" value="save"></button>
 		</div>
 
 

@@ -15,14 +15,14 @@ var PassengerInfo = new mongoose.Schema({
   phoneNumber: String,
   profileImage: String,
   notifications: Boolean,
-  wheelChairAccess: String,
-  cargoSpace: String,
-  lowRise: String,
-  stepAssistance: String,
+  wheelChairAccess: Boolean,
+  cargoSpace: Boolean,
+  lowRise: Boolean,
+  stepAssistance: Boolean,
 	created: Date
 });
 
-var PassengerModel = mongoose.model('Passenger', PassengerInfo);
+var PassengerModel = mongoose.model('passenger', PassengerInfo);
 
 // Make this available to our other files
 module.exports = PassengerModel;

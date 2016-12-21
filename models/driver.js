@@ -3,6 +3,7 @@ var	Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
 
 var DriverInfo = new mongoose.Schema({
+	type: ObjectId,
 	firstName: String,
 	lastName: String,
 	password: String,
@@ -15,10 +16,10 @@ var DriverInfo = new mongoose.Schema({
 	make: String,
 	model: String,
 	color: String,
-	wheelChairAccess: String,
-	cargoSpace: String,
-	lowRise: String,
-	stepAssistance: String,
+	wheelChairAccess: Boolean,
+	cargoSpace: Boolean,
+	lowRise: Boolean,
+	stepAssistance: Boolean,
 	created: Date
 });
 
