@@ -52,7 +52,7 @@ router.get('/signin',function(req, res){
 
 // driver application routes
 
-router.get('/driver-app-pg1',function(req, res){
+router.get('/driver-app-pg1', ensureLoggedIn, function(req, res){
     res.render('driver-app-pg1');
   });
 

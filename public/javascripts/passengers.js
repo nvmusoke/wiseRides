@@ -127,12 +127,28 @@ $(function(){
 function getNotifications(){
 // use ajax to get notifsactions
 	var request = $.ajax({
-		url: '/notifications',
-		method: 'GET',
-		header:
+		url: 'rideapi/notifications',
+		method: 'GET'
 	});
 
-	request.done(function(res){});
+	request.done(function(res){
+		res.notifications.forEach(function(notification, index){
+			$('#notifications').prepend([
+				'<li>',
+				'<div> Date: ',notification.date,'</div>',
+				'</li>',
+				'<li>',
+				'<div>',notification.time,'</div>',
+				'</li>',
+				'<li>',
+				'<div>',notification.pickUpAddress,'</div>',
+				'</li>',
+				'<li>',
+				'<div>',notification.dropOffAddress,'</div>',
+				'</li>'
+			].join(''));
+		});
+	});
 // populate notifications in the dom
 
 }
@@ -140,7 +156,7 @@ function getNotifications(){
 function addEventListeners(){
 
 	$('.nav-ride').on('click', function(e){
-
+		getNotifications();
 	});
 
   $('body').on('click','a.edit-passenger',function(event){
@@ -224,6 +240,7 @@ $('body').on('click','.delete-account',function(e){
 };
 
 function main(){
+	getNotifications();
   addEventListeners();
   // loadPassengers();
 	// loadOnePassenger();

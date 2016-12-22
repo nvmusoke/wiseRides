@@ -36,7 +36,8 @@ router.post('/', function(req, res, next){
 		birthday: req.body.birthday,
 		email: req.body.email,
 		phoneNumber: req.body.phoneNumber,
-		notifications: req.body.notifications
+		notifications: req.body.notifications,
+		driverId: req.user.sub
 	};
 
 	var newDriver = new DriverModel(driverInfo);
