@@ -4,6 +4,7 @@ var PassengerModel = require('../models/passenger');
 var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
+
 // GET all passengers
 router.get('/', function(req, res, next) {
 	PassengerModel.find({}, '', function(err, allPassengers){
@@ -12,7 +13,7 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-//GET single passenger
+// GET single passenger
 router.get('/:passengerId', function(req,res){
 	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
 		if (err) console.log(err);
@@ -22,8 +23,8 @@ router.get('/:passengerId', function(req,res){
 
 //POST a new passenger
 router.post('/', function(req, res, next){
-	console.log('new page route working');
-	console.log('user is: ', req.user);
+	// console.log('new page route working');
+	// console.log('user is: ', req.user);
 
 	var passengerInfo = {
 		firstName: req.body.firstName,
@@ -38,7 +39,7 @@ router.post('/', function(req, res, next){
 
 	var newPassenger = new PassengerModel(passengerInfo);
 		newPassenger.save(function(err,success){
-			console.log('New passenger created');
+			// console.log('New passenger created');
 			if(err) console.error(err);
 			res.redirect('/passenger-app-pg2');
 		});

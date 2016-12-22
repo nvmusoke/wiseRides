@@ -8,7 +8,7 @@ var Trip = require('../models/trip');
 router.get('/driver-profile-private', function(req, res, next){
 	DriverModel.find({}, '', function(err,driver){
 		if(err) console.error('Error getting drivers:', err);
-		console.log(driver);
+		// console.log(driver);
 		res.json(driver);
 	});
 });
@@ -16,7 +16,7 @@ router.get('/driver-profile-private', function(req, res, next){
 
 //POST a new driver
 router.post('/driver-app-pg1', function(req, res, next){
-	console.log('new driver created');
+	// console.log('new driver created');
 	var driverInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -30,7 +30,7 @@ router.post('/driver-app-pg1', function(req, res, next){
 	var newDriver = new DriverModel(driverInfo);
 
 	newDriver.save(function(err,success){
-		console.log('New Driver Created!!');
+		// console.log('New Driver Created!!');
 		if (err) console.log(err);
 
 		res.send('New Driver Created');
@@ -84,7 +84,7 @@ router.put('/', function(req, res, next){
 
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
-		console.log(driverInfo);
+		// console.log(driverInfo);
 		res.send('SUCCESS');
 	});
 });
