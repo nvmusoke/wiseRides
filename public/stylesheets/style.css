@@ -147,8 +147,8 @@ input {
   background-color: white;
   width: 50px;
   height: 50px;
-  padding: 10px 16px;
-  font-size: 25px;
+  padding: 10px 20px;
+  font-size: 20px;
   line-height: 1.33;
   border-radius: 25px;
 }
@@ -204,7 +204,7 @@ font-size: 20px;
   margin-bottom: 0;
 }
 
-/* applicatoin pg 1 */
+/* application pg 1 */
 #application-pg1 {
   color: #FFFFFF;
   background: #3E1B2C;
@@ -234,6 +234,9 @@ font-size: 20px;
     opacity: 0;
     filter: alpha(opacity=0);
 }
+.insert-margin {
+  margin-top: 25px;
+}
 
 #upload-btn {
   color:#FFF;
@@ -244,23 +247,16 @@ font-size: 20px;
   padding: 14px 100px;
   border-radius: 50px;
 }
-
-.insert-margin {
-  margin-top: 25px;
+/*Map page*/
+#map-img{
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
-@media (max-width: 480px) {
 
-	#passButton {
-		background: #DB7B14;
-		width: 50px;
-	  height: 50px;
-	  padding: 10px 16px;
-	  font-size: 18px;
-	  line-height: 1.33;
-	  border-radius: 25px;
- 		margin: 0 auto;
-	}
+@media (max-width: 480px) {
 
 	.main-h1 {
 		color: white;
@@ -285,16 +281,41 @@ font-size: 20px;
 		color: #DB7B14;
 	}
 
-	#bettywhite{
-	 max-width: 40%;
-	 max-height: 40%;
-	 position: static;
-	 border-color: #3E1B2C;
-	}
-}
+  .scrollable-menu {
+      height: auto;
+      max-height: 200px;
+      overflow-x: hidden;
+  }
 
-.scrollable-menu {
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
+	#passButton {
+		background: #DB7B14;
+		width: 50px;
+	  height: 50px;
+	  padding: 10px 16px;
+	  font-size: 18px;
+	  line-height: 1.33;
+	  border-radius: 25px;
+ 		margin: 0 auto;
+	}
+	#bettywhite{
+  	max-width: 40%;
+  	max-height: 40%;
+    position: static;
+  	border-color: #3E1B2C;
+	}
+
+  #tutorial-video{
+    max-width: 70%;
+    max-width: 70%;
+  }
+
+  #map-img{
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+
+/*End of media query*/
 }
