@@ -4,6 +4,7 @@ var	Schema = mongoose.Schema,
 
 var DriverInfo = new mongoose.Schema({
 	type: ObjectId,
+	driverId: String,
 	firstName: String,
 	lastName: String,
 	password: String,
@@ -23,7 +24,7 @@ var DriverInfo = new mongoose.Schema({
 	created: Date
 });
 
-var DriverModel = mongoose.model('driver', DriverInfo);
+var DriverModel = mongoose.model('Driver', DriverInfo);
 
 // Make this available to our other files
 module.exports = DriverModel;
