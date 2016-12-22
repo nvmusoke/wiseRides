@@ -124,7 +124,24 @@ $(function(){
 // 	});
 // };
 
+function getNotifications(){
+// use ajax to get notifsactions
+	var request = $.ajax({
+		url: '/notifications',
+		method: 'GET',
+		header:
+	});
+
+	request.done(function(res){});
+// populate notifications in the dom
+
+}
+
 function addEventListeners(){
+
+	$('.nav-ride').on('click', function(e){
+
+	});
 
   $('body').on('click','a.edit-passenger',function(event){
     event.preventDefault();

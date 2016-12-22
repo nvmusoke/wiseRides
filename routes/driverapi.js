@@ -7,7 +7,7 @@ var Trip = require('../models/trip');
 
 //GET all drivers
 router.get('/driver', ensureLoggedIn, function(req, res, next){
-	DriverModel.find({ driverId: req.user.aud }, '', function(err,driver){
+	DriverModel.find({ driverId: req.user.sub }, '', function(err,driver){
 		if(err) console.error('Error getting drivers:', err);
 		// console.log(driver);
 		res.json(driver);
