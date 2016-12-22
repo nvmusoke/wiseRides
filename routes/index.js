@@ -41,10 +41,6 @@ router.get('/onboarding',function(req, res){
     res.render('onboarding');
   });
 
-router.get('/settings',function(req, res){
-    res.render('settings');
-  });
-
 router.get('/signup',function(req, res){
     res.render('signup');
   });
@@ -76,6 +72,9 @@ router.get('/driver-app-done',function(req, res){
   });
 
 // driver profile/appointment/ride request routes
+router.get('/driver-settings',function(req, res){
+    res.render('driver-settings');
+  });
 
 router.get('/driver-profile-private',function(req, res){
     res.render('driver-profile-private');
@@ -134,7 +133,9 @@ router.get('/passenger-app-done',function(req, res){
   });
 
 //passenger profile/appointment/schedule routes
-
+router.get('/passenger-settings',function(req, res){
+    res.render('passenger-settings');
+  });
 router.get('/passenger-profile-private',function(req, res){
     res.render('passenger-profile-private');
   });
