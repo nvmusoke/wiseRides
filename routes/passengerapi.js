@@ -45,7 +45,7 @@ router.post('/', function(req, res, next){
 });
 
 // New passenger page 2
-router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next){
+router.put('/passenger-app-pg2', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		streetAddress: req.body.streetAddress,
@@ -60,7 +60,7 @@ router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next)
 
 	PassengerModel.findByIdAndUpdate(passengerId,updateInfo, function(err,passengerInfo){
 		if(err) console.error(err);
-		res.send('SUCCESS');
+		// res.send('SUCCESS');
 		res.redirect('/passenger-app-done');
 	});
 });
