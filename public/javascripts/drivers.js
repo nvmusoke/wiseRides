@@ -1,48 +1,55 @@
 $(function(){
 	console.log('loaded drivers.js');
 
-	function loadDrivers(){
-  $.get('/driverapi/driver-profile-private',function(res){
-
-    res.forEach(function(driver, index){
-      var firstName = driver.firstName;
-      var lastName = driver.lastName;
-      var password = driver.password;
-			var birthday = driver.birthday;
-      var email = driver.email;
-      var phoneNumber = driver.phoneNumber;
-			var profileImage = driver.profileImage;
-      var notifications = driver.notifications;
-      var licensePlate = driver.licensePlate;
-			var make = driver.make;
-      var model = driver.model;
-      var color = driver.color;
-			var wheelChairAccess = driver.wheelChairAccess;
-			var cargoSpace = driver.cargoSpace;
-      var lowRise = driver.lowRise;
-      var stepAssistance = driver.stepAssistance;
-			var driverId = driver._id;
-
-      var DriverInfo = [
-        '<li>',
-          '<div class="driver" data-driverid=',driverId,'>',
-              '<section class="firstName">',firstName,'</section>',
-              '<section class="lastName">',lastName,'</section>',
-							'<section class="password">',password,'</section>',
-              '<section class="birthday">',birthday,'</section>',
-              '<section class="email">',email,'</section>',
-              '<a class="edit-driver" href="/driver-profile-private">Edit </a>',
-              '<a class="delete-account" href="#">Delete</a>',
-            '</div>',
-          '</li>'
-      ].join('');
-			// console.log(DriverInfo);
-      $('.main-content').find('.drivers').prepend(DriverInfo);
-    });
-  });
-};
-
+// 	function loadDrivers(){
+//   $.get('/driverapi/driver-profile-private',function(res){
+//
+//     res.forEach(function(driver, index){
+//       var firstName = driver.firstName;
+//       var lastName = driver.lastName;
+//       var password = driver.password;
+// 			var birthday = driver.birthday;
+//       var email = driver.email;
+//       var phoneNumber = driver.phoneNumber;
+// 			var profileImage = driver.profileImage;
+//       var notifications = driver.notifications;
+//       var licensePlate = driver.licensePlate;
+// 			var make = driver.make;
+//       var model = driver.model;
+//       var color = driver.color;
+// 			var wheelChairAccess = driver.wheelChairAccess;
+// 			var cargoSpace = driver.cargoSpace;
+//       var lowRise = driver.lowRise;
+//       var stepAssistance = driver.stepAssistance;
+// 			var driverId = driver._id;
+//
+//       var DriverInfo = [
+//         '<li>',
+//           '<div class="driver" data-driverid=',driverId,'>',
+//               '<section class="firstName">',firstName,'</section>',
+//               '<section class="lastName">',lastName,'</section>',
+// 							'<section class="password">',password,'</section>',
+//               '<section class="birthday">',birthday,'</section>',
+//               '<section class="email">',email,'</section>',
+//               '<a class="edit-driver" href="/driver-profile-private">Edit </a>',
+//               '<a class="delete-account" href="#">Delete</a>',
+//             '</div>',
+//           '</li>'
+//       ].join('');
+// 			// console.log(DriverInfo);
+//       $('.main-content').find('.drivers').prepend(DriverInfo);
+//     });
+//   });
+// };
+//
 function addEventListeners(){
+
+	$('#driverAlert').on('click', function(event){
+		event.preventDefault();
+		alert('Please check your email for confirmation');
+		console.log('alert sent');
+		window.location = 'mailto:' + $(this).data('mail')+'@yourdomain.net' + '?subject=Spotflow';
+	});
 
   $('body').on('click','a.edit-driver',function(event){
     event.preventDefault();
@@ -132,7 +139,7 @@ $('body').on('click','.delete-account',function(e){
 
 function main(){
   addEventListeners();
-  loadDrivers();
+  // loadDrivers();
 }
 	main();
 });

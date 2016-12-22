@@ -23,7 +23,7 @@ var DriverInfo = new mongoose.Schema({
 	created: Date
 });
 
-var DriverModel = mongoose.model('driver', DriverInfo);
+var DriverModel = mongoose.model('Driver', DriverInfo);
 
 // Make this available to our other files
 module.exports = DriverModel;

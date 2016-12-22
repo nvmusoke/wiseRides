@@ -23,7 +23,7 @@ var PassengerInfo = new mongoose.Schema({
 	auth0Id: String
 });
 
-var PassengerModel = mongoose.model('passenger', PassengerInfo);
+var PassengerModel = mongoose.model('Passenger', PassengerInfo);
 
 // Make this available to our other files
 module.exports = PassengerModel;
