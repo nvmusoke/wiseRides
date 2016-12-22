@@ -25,8 +25,10 @@ router.get('/driver/:driverId', function(req,res){
 
 
 //POST a new driver
+
 router.post('/', function(req, res, next){
 	console.log('new driver created');
+
 	var driverInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -39,7 +41,7 @@ router.post('/', function(req, res, next){
 
 	var newDriver = new DriverModel(driverInfo);
 	newDriver.save(function(err,success){
-		console.log('New Driver Created!!');
+		// console.log('New Driver Created!!');
 		if (err) console.log(err);
 		res.redirect('/driver-app-pg2');
 	});
@@ -91,6 +93,7 @@ router.put('/driver/:driverId', function(req, res, next){
 
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
+
 		console.log(driverInfo);
 		// res.send('SUCCESS');
 		res.redirect('/driver-app-done');

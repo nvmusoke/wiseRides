@@ -5,6 +5,7 @@ var PassengerModel = require('../models/passenger');
 var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
+
 // GET all passengers
 router.get('/passenger', function(req, res, next) {
 	PassengerModel.find({ passengerId: req.user.aud }, '', function(err, passengers){
@@ -16,6 +17,7 @@ router.get('/passenger', function(req, res, next) {
 //GET single passenger
 router.get('/passenger/:passengerId', function(req,res){
 	PassengerModel.findById({ userId: req.user.passengerId }, '', function(err, passenger){
+
 		if (err) console.log(err);
 		res.json(passenger);
 		// console.log(req.user.passengerId);
@@ -25,7 +27,11 @@ router.get('/passenger/:passengerId', function(req,res){
 //POST a new passenger
 router.post('/', function(req, res, next){
 	// console.log('new page route working');
+
+	// console.log('user is: ', req.user);
+
 	// console.log('user is: ', req.passenger);
+
 
 	var passengerInfo = {
 		firstName: req.body.firstName,
@@ -40,13 +46,16 @@ router.post('/', function(req, res, next){
 
 	var newPassenger = new PassengerModel(passengerInfo);
 		newPassenger.save(function(err,success){
+
 			if(err) console.error(err);
 			res.redirect('/passenger-app-pg2');
 		});
 });
 
 // New passenger page 2
+
 router.put('/passenger/:passengerId', function(req, res, next){
+
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		streetAddress: req.body.streetAddress,

@@ -19,6 +19,7 @@ var routes = require('./routes/index');
 var user = require('./routes/user');
 var passengerApi = require('./routes/passengerapi');
 var driverApi = require('./routes/driverapi');
+var rideApi = require('./routes/rideapi');
 
 var readline = require('readline');
 var google = require('googleapis');
@@ -95,6 +96,7 @@ app.get('/driverapi/:id', function(req, res) {
 app.get('/passengerapi/:id', function(req, res) {
     var passengerId = req.params.id;
 });
+app.use('/rideapi', rideApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
