@@ -1,27 +1,70 @@
 $(function(){
 	console.log('loaded drivers.js');
 
-// 	function loadDrivers(){
+// 	function loadDrivers(driver, index){
+//
+// 		$.ajax({
+// 			type: 'GET',
+// 			url: 'http://localhost:3000/driverapi/driver',
+// 			data: {
+// 				 firstName: 'firstName',
+// 	       lastName: 'lastName',
+// 	       password: 'password',
+// 				 birthday: 'birthday',
+// 	       email: 'email',
+// 	       phoneNumber: 'phoneNumber',
+// 				 profileImage: 'profileImage',
+// 	       notifications: 'notifications',
+// 	       licensePlate: 'licensePlate',
+// 				 make: 'make',
+// 	       model: 'model',
+// 	       color: 'color',
+// 				 wheelChairAccess: 'wheelChairAccess',
+// 				 cargoSpace: 'cargoSpace',
+// 	       lowRise: 'lowRise',
+// 	       stepAssistance: 'stepAssistance',
+// 				 driverId: '_id'
+// 			},
+//
+// 			beforeSend:function(){
+// 		    // this is where we append a loading image
+// 		    $('.driver').html('<div class="loading"><img src="/images/passenger-photo.jpg" alt="Loading..." /></div>');
+// 		  },
+// 			success:function(data){
+// 				console.log(driver);
+//     // successful request; do something with the data
+// 			$(data).find('item').each(function(i){
+// 				$('.driver').append('<h4>' + $(this).find(firstName).text() + '</h4><p>' + $(this).find('lastName').text() + '</p>');
+// 			});
+// 			console.log(data);
+// 		},
+// 			error:function(){
+//     // failed request; give feedback to user
+//     $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
+//   }
+// });
+// };
+
 //   $.get('/driverapi/driver-profile-private',function(res){
 //
 //     res.forEach(function(driver, index){
-//       var firstName = driver.firstName;
-//       var lastName = driver.lastName;
-//       var password = driver.password;
-// 			var birthday = driver.birthday;
-//       var email = driver.email;
-//       var phoneNumber = driver.phoneNumber;
-// 			var profileImage = driver.profileImage;
-//       var notifications = driver.notifications;
-//       var licensePlate = driver.licensePlate;
-// 			var make = driver.make;
-//       var model = driver.model;
-//       var color = driver.color;
-// 			var wheelChairAccess = driver.wheelChairAccess;
-// 			var cargoSpace = driver.cargoSpace;
-//       var lowRise = driver.lowRise;
-//       var stepAssistance = driver.stepAssistance;
-// 			var driverId = driver._id;
+//        firstName: firstName;
+//        lastName: lastName;
+//        password: password;
+// 			 birthday: birthday;
+//        email: email;
+//        phoneNumber: phoneNumber;
+// 			 profileImage: profileImage;
+//        notifications: notifications;
+//        licensePlate: licensePlate;
+// 			 make: make;
+//        model: model;
+//        color: color;
+// 			 wheelChairAccess: wheelChairAccess;
+// 			 cargoSpace: cargoSpace;
+//        lowRise: lowRise;
+//        stepAssistance: stepAssistance;
+// 			 driverId: _id;
 //
 //       var DriverInfo = [
 //         '<li>',
