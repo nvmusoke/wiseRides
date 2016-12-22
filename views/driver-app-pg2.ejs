@@ -4,7 +4,9 @@
   <div class="passengertxt">
     <p>Now let's check that you are a capable and safe driver.</p>
   </div>
-<form method="put" class="insert-margin">
+
+<form method="put" class="insert-margin" action="driver-app-pg3">
+
   <div class="form-group">
      <label for="license" class="white-text">Driver's License</label>
      <br>
@@ -18,17 +20,20 @@
   <div class="form-group">
      <label for="insurance" class="white-text">Insurance Card</label>
      <br>
-     <div id="upload-btn" class="fileUpload btn btn-default">
-      <span>Upload</span>
-      <input type="file" class="upload" />
-    </div>
+	     <div id="upload-btn" class="fileUpload btn btn-default">
+		      <span>Upload</span>
+		      <input type="file" class="upload" />
+	    	</div>
      <p class="help-block">Upload a photo of your insurance card.</p>
   </div>
+
+	<div class="col-xs-offset-0">
+	  <button type="submit" id="passButton" value="save" class="forward-button"><img src="../images/nextarrow.png" type="submit" value="save"></button>
+	</div>
+	
 </form>
 
-<div class="col-xs-offset-0">
-  <button type="submit" id="passButton" value="save" class="forward-button"><img src="../images/nextarrow.png" type="submit" value="save"></button>
-</div>
+
 
 
 

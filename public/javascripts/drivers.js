@@ -42,97 +42,104 @@ $(function(){
 //   });
 // };
 //
-// function addEventListeners(){
-//
-//   $('body').on('click','a.edit-driver',function(event){
-//     event.preventDefault();
-//
-//     var $driver = $(this).closest('.driver');
-//     var driverId = $driver.data('driverid');
-//
-//     var firstName = $driver.find('.firstName').text();
-//     var lastName = $driver.find('.lastName').text();
-// 		var email = $driver.find('.email').text();
-//
-//     $driver.html( [
-// 		'<li>',
-// 			'<div class="driver" data-driverid=',driverId,'>',
-// 	      '<input class="edit-firstName" name="title" value="',firstName,'"/>',
-// 	      '<input class="edit-lastName" name="content" value="',lastName,'"/>',
-// 				'<input class="edit-email" name="content" value="',email,'"/>',
-// 			'</div>',
-// 		'</li>',
-// 		'<button class="send-update">Update</button>'
-//     ].join('') );
-//
-//   });
-//
-//   $('body').on('click','.send-update',function(e){
-//     e.preventDefault();
-//
-//     var $driver = $(this).closest('.driver');
-//     var firstName = $driver.find('.edit-firstName').val();
-//     var lastName = $driver.find('.edit-lastName').val();
-// 		var email = $driver.find('.edit-email').val();
-//     var driverId = $driver.data('driverid');
-//     var updateDriver = $.ajax({
-//       url: '/driverapi',
-//       method: 'PUT',
-//       data: {
-//         firstName: firstName,
-//         lastName: lastName,
-// 				email: email,
-//         driverId: driverId
-//       }
-//     });
-//
-//     updateDriver.done(function(res){
-//       console.log(res);
-//       $driver.html( [
-// 				'<li>',
-//           '<div class="driver" data-driverid=',driverId,'>',
-//               '<section class="firstName">',firstName,'</section>',
-//               '<section class="lastName">',lastName,'</section>',
-//               '<section class="email">',email,'</section>',
-//               '<a class="edit-driver" href="/driver-profile-private">Edit </a>',
-//               '<a class="delete-account" href="#">Delete</a>',
-//             '</div>',
-//           '</li>'
-//       ].join('') );
-//     });
-//
-//     updateDriver.fail(function(err){
-//       console.error('There was an error: ', err);
-//     });
-//   });
-//
-// 	// Delete Post
-// $('body').on('click','.delete-account',function(e){
-// 	var $driver = $(this).closest('.driver');
-// 	var driverId = $driver.data('driverid');
-//
-// 	if(!confirm('Are you sure you want to delete this account??')) return;
-//
-// 	var removeDriver = $.ajax({
-// 		method: 'DELETE',
-// 		url: '/driverapi',
-// 		data: { driverId: driverId }
-// 	});
-//
-// 		removeDriver.done(function(response){
-// 			$driver.closest('li').remove();
-// 			console.log('Driver remove success: ', response);
-// 		});
-//
-// 		removeDriver.fail(function(error){
-// 			console.error('Driver remove fail: ', error);
-// 		});
-// 	});
-// };
-//
-// function main(){
-//   addEventListeners();
-//   loadDrivers();
-// }
-// 	main();
+function addEventListeners(){
+
+	$('#driverAlert').on('click', function(event){
+		event.preventDefault();
+		alert('Please check your email for confirmation');
+		console.log('alert sent');
+		window.location = 'mailto:' + $(this).data('mail')+'@yourdomain.net' + '?subject=Spotflow';
+	});
+
+  $('body').on('click','a.edit-driver',function(event){
+    event.preventDefault();
+
+    var $driver = $(this).closest('.driver');
+    var driverId = $driver.data('driverid');
+
+    var firstName = $driver.find('.firstName').text();
+    var lastName = $driver.find('.lastName').text();
+		var email = $driver.find('.email').text();
+
+    $driver.html( [
+		'<li>',
+			'<div class="driver" data-driverid=',driverId,'>',
+	      '<input class="edit-firstName" name="title" value="',firstName,'"/>',
+	      '<input class="edit-lastName" name="content" value="',lastName,'"/>',
+				'<input class="edit-email" name="content" value="',email,'"/>',
+			'</div>',
+		'</li>',
+		'<button class="send-update">Update</button>'
+    ].join('') );
+
+  });
+
+  $('body').on('click','.send-update',function(e){
+    e.preventDefault();
+
+    var $driver = $(this).closest('.driver');
+    var firstName = $driver.find('.edit-firstName').val();
+    var lastName = $driver.find('.edit-lastName').val();
+		var email = $driver.find('.edit-email').val();
+    var driverId = $driver.data('driverid');
+    var updateDriver = $.ajax({
+      url: '/driverapi',
+      method: 'PUT',
+      data: {
+        firstName: firstName,
+        lastName: lastName,
+				email: email,
+        driverId: driverId
+      }
+    });
+
+    updateDriver.done(function(res){
+      console.log(res);
+      $driver.html( [
+				'<li>',
+          '<div class="driver" data-driverid=',driverId,'>',
+              '<section class="firstName">',firstName,'</section>',
+              '<section class="lastName">',lastName,'</section>',
+              '<section class="email">',email,'</section>',
+              '<a class="edit-driver" href="/driver-profile-private">Edit </a>',
+              '<a class="delete-account" href="#">Delete</a>',
+            '</div>',
+          '</li>'
+      ].join('') );
+    });
+
+    updateDriver.fail(function(err){
+      console.error('There was an error: ', err);
+    });
+  });
+
+	// Delete Post
+$('body').on('click','.delete-account',function(e){
+	var $driver = $(this).closest('.driver');
+	var driverId = $driver.data('driverid');
+
+	if(!confirm('Are you sure you want to delete this account??')) return;
+
+	var removeDriver = $.ajax({
+		method: 'DELETE',
+		url: '/driverapi',
+		data: { driverId: driverId }
+	});
+
+		removeDriver.done(function(response){
+			$driver.closest('li').remove();
+			console.log('Driver remove success: ', response);
+		});
+
+		removeDriver.fail(function(error){
+			console.error('Driver remove fail: ', error);
+		});
+	});
+};
+
+function main(){
+  addEventListeners();
+  // loadDrivers();
+}
+	main();
 });

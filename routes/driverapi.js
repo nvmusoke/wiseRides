@@ -6,11 +6,20 @@ var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
 //GET all drivers
-router.get('/driver-profile-private', function(req, res, next){
-	DriverModel.find({}, '', function(err,driver){
+router.get('/driver', function(req, res, next){
+	DriverModel.find({ driverId: req.user.aud }, '', function(err,driver){
 		if(err) console.error('Error getting drivers:', err);
 		// console.log(driver);
 		res.json(driver);
+	});
+});
+
+//GET single passenger
+router.get('/driver/:driverId', function(req,res){
+	DriverModel.findById({ userId: req.user.driverId }, '', function(err, driver){
+		if (err) console.log(err);
+		res.json(driver);
+		// console.log(req.user.passengerId);
 	});
 });
 
@@ -29,12 +38,9 @@ router.post('/', function(req, res, next){
 	};
 
 	var newDriver = new DriverModel(driverInfo);
-
 	newDriver.save(function(err,success){
 		console.log('New Driver Created!!');
 		if (err) console.log(err);
-
-		// res.send('New Driver Created');
 		res.redirect('/driver-app-pg2');
 	});
 });
@@ -56,13 +62,13 @@ router.put('/driver/:driverId', function(req, res, next){
 
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
-		// res.send('SUCCESS');
+		console.log('Driver Edited!!');
 		res.redirect('/driver-app-pg3');
 	});
 });
 
 //PUT a change into driver info
-router.put('/', function(req, res, next){
+router.put('/driver/:driverId', function(req, res, next){
 	var driverId = req.body.driverId;
 	var updateInfo = {
 		firstName: req.body.firstName,
@@ -86,7 +92,8 @@ router.put('/', function(req, res, next){
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
 		console.log(driverInfo);
-		res.send('SUCCESS');
+		// res.send('SUCCESS');
+		res.redirect('/driver-app-done');
 	});
 });
 
