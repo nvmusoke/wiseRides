@@ -2,11 +2,10 @@
 <body class="tan-background">
 <% include partials/driver-navbar %>
 
-<form class="form-inline">
+<form class="form-inline" method="post">
 
   <label for="date">Select a day to input availablility</label><br>
   <input type="date" name="availability" class="form-control width-control" method="post" id="birthday" placeholder="Availability date">
-</form>
 
 <div class="dropdown col-xs-4 col-xs-offset-2">
   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Start
@@ -57,5 +56,8 @@ Repeat on (select all that apply):
 </label>
 
 
+<button type="submit" value="save" method="post" class="btn-orange-lg" type="submit" value="save">Submit</button>
+
+</form>
 
 <% include partials/footer %>

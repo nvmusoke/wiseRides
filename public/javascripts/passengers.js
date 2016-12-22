@@ -1,6 +1,48 @@
 $(function(){
 	console.log('loaded passenger.js');
 
+		// function loadPassengers(){
+// 	  $.get('/passengerapi',function(res){
+//
+// 	    res.forEach(function(passenger, index){
+// 	      var firstName = passenger.firstName;
+// 	      var lastName = passenger.lastName;
+// 	      var password = passenger.password;
+// 				var birthday = passenger.birthday;
+// 	      var email = passenger.email;
+// 	      var streetAddress = passenger.streetAddress;
+// 				var city = passenger.city;
+// 	      var state = passenger.state;
+// 	      var phoneNumber = passenger.phoneNumber;
+// 				var profileImage = passenger.profileImage;
+// 	      var notifications = passenger.notifications;
+// 	      var wheelChairAccess = passenger.wheelChairAccess;
+// 				var cargoSpace = passenger.cargoSpace;
+// 	      var lowRise = passenger.lowRise;
+// 	      var stepAssistance = passenger.stepAssistance;
+// 				var passengerId = passenger._id;
+//
+// 	      var PassengerInfo = [
+// 	        '<li>',
+// 	          '<div class="passenger" data-passengerid=',passengerId,'>',
+// 	              '<section class="firstName">',firstName,'</section>',
+// 	              '<section class="lastName">',lastName,'</section>',
+// 								'<section class="password">',password,'</section>',
+// 	              '<section class="birthday">',birthday,'</section>',
+// 	              '<section class="email">',email,'</section>',
+// 	              '<a class="edit-passenger" href="/passenger-profile-private">Edit </a>',
+// 	              '<a class="delete-account" href="#">Delete</a>',
+// 	            '</div>',
+// 	          '</li>'
+// 	      ].join('');
+// 				console.log(PassengerInfo);
+// 	      $('.main-content').find('ul.addedPassengers').prepend(PassengerInfo);
+// 	    });
+// 	  });
+// 	};
+//
+// 	// get single passenger
+
 	// 	function loadPassengers(){
 	//   $.get('/passengerapi/passengers',function(res){
 	//
@@ -82,7 +124,40 @@ $(function(){
 // 	});
 // };
 
+function getNotifications(){
+// use ajax to get notifsactions
+	var request = $.ajax({
+		url: 'rideapi/notifications',
+		method: 'GET'
+	});
+
+	request.done(function(res){
+		res.notifications.forEach(function(notification, index){
+			$('#notifications').prepend([
+				'<li>',
+				'<div> Date: ',notification.date,'</div>',
+				'</li>',
+				'<li>',
+				'<div>',notification.time,'</div>',
+				'</li>',
+				'<li>',
+				'<div>',notification.pickUpAddress,'</div>',
+				'</li>',
+				'<li>',
+				'<div>',notification.dropOffAddress,'</div>',
+				'</li>'
+			].join(''));
+		});
+	});
+// populate notifications in the dom
+
+}
+
 function addEventListeners(){
+
+	$('.nav-ride').on('click', function(e){
+		getNotifications();
+	});
 
   $('body').on('click','a.edit-passenger',function(event){
     event.preventDefault();
@@ -165,6 +240,7 @@ $('body').on('click','.delete-account',function(e){
 };
 
 function main(){
+	getNotifications();
   addEventListeners();
   // loadPassengers();
 	// loadOnePassenger();

@@ -2,14 +2,24 @@ var express = require('express');
 var router = express.Router();
 var Ride = require('../models/ride');
 var Drivers = require('../models/driver');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
 
-router.get('/',function(req,res,next){
-  Ride.find({},'',function( err,rides ){
-    if(err) console.error('Error gettting posts: ', err);
-    res.json(rides);
+// GET notifications
+router.get('/notifications',ensureLoggedIn, function(req,res,next){
+  console.log('req.user: ', req.user);
+  Drivers.findOne({ driverId: req.user.sub },'notifications',function( err,notifications ){
+    if(err) console.error('Error gettting notifications: ', err);
+    res.json(notifications);
   });
 });
+
+// router.get('/', function(req, res, next) {
+// 	PassengerModel.find({}, '', function(err, allPassengers){
+// 		if(err) console.error('Error getting passenger:', err);
+// 		res.json(allPassengers);
+// 	});
+// });
 
 router.post('/requestride',function(req,res,next){
   // modify this object to have just the address key
@@ -24,11 +34,16 @@ router.post('/requestride',function(req,res,next){
     if(error) console.error(error);
 
     drivers.forEach(function(driver,index){
-      driver.notifications.push(rideInfo);
+      driver.notifications = driver.notifications.concat(rideInfo);
       driver.save();
     });
-    res.json(drivers);
+
+    console.log('rideInfo: ',rideInfo)
+    res.render('ride-req-confirm',{ rideInfo: rideInfo });
+
   });
+
+
 });
 
 module.exports = router;
