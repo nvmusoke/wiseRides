@@ -5,15 +5,15 @@ var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
 // GET all passengers
-router.get('/passenger-profile-private', function(req, res, next) {
-	PassengerModel.find({}, '', function(err,passenger){
+router.get('/', function(req, res, next) {
+	PassengerModel.find({}, '', function(err, allPassengers){
 		if(err) console.error('Error getting passenger:', err);
-		res.json(passenger);
+		res.json(allPassengers);
 	});
 });
 
 //GET single passenger
-router.get('/passenger/:passengerId', function(req,res){
+router.get('/:passengerId', function(req,res){
 	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
 		if (err) console.log(err);
 		res.json(passenger);
@@ -23,6 +23,8 @@ router.get('/passenger/:passengerId', function(req,res){
 //POST a new passenger
 router.post('/', function(req, res, next){
 	console.log('new page route working');
+	console.log('user is: ', req.user);
+
 	var passengerInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -31,6 +33,7 @@ router.post('/', function(req, res, next){
 		email: req.body.email,
 		phoneNumber: req.body.phoneNumber,
 		notifications: req.body.notifications
+	//	auth0Id: req.user.id
 	};
 
 	var newPassenger = new PassengerModel(passengerInfo);
