@@ -9,38 +9,41 @@
       Profile Image
       <img src="">
     </div>
-    <form class="specs" method="post">
+    <form class="specs" method="post" action="/passengerapi">
       <div>
       <h3 class="title">Check all vehicle specifications that apply to your needs
       </div>
       <div class="col-xs-offset-2" style="text-align: left; color: black;">
           <div class="checkbox">
             <label>
-              <input class="box" type="checkbox" value="">
+              <input class="box" method="post" type="checkbox" value="">
               <h3 class="checkbox-text white-text">Wheelchair accessible</h3>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input class="box" type="checkbox" value="">
+              <input class="box" method="post" type="checkbox" value="">
               <h3 class="checkbox-text white-text">Cargo space for medical supplies</h3>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input class="box" type="checkbox" value="">
+              <input class="box" method="post" type="checkbox" value="">
               <h3 class="checkbox-text white-text">Low-rise vehicle</h3>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input class="box no-bottom-padding" type="checkbox" value="">
+              <input class="box no-bottom-padding" method="post" type="checkbox" value="">
               <h3 class="checkbox-text white-text">Step assistance</h3>
             </label>
           </div>
     </form>
   </div>
-  <a class="btn-orange-lg" href="/passenger-app-done" role="button">Submit</a><br>
+  <a href="/passenger-app-done">
+  <button type="submit" value="save" class="btn-orange-lg" type="submit" value="save">Submit</button>
+</a>
+
 </div>
 
 
