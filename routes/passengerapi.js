@@ -7,7 +7,7 @@ var Trip = require('../models/trip');
 
 
 // GET all passengers
-router.get('/passenger', function(req, res, next) {
+router.get('/passenger', ensureLoggedIn, function(req, res, next) {
 	PassengerModel.find({ passengerId: req.user.aud }, '', function(err, passengers){
 		if(err) console.error('Error getting passenger:', err);
 		res.json(passengers);
