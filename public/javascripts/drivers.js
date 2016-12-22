@@ -91,7 +91,7 @@ function addEventListeners(){
 		event.preventDefault();
 		alert('Please check your email for confirmation');
 		console.log('alert sent');
-		window.location = 'mailto:' + $(this).data('mail')+'@yourdomain.net' + '?subject=Spotflow';
+		window.location = '/';
 	});
 
   $('body').on('click','a.edit-driver',function(event){
@@ -155,6 +155,12 @@ function addEventListeners(){
       console.error('There was an error: ', err);
     });
   });
+
+//select item from drop down menu
+	$(".dropdown-menu li a").click(function(){
+	  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+	  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+	});
 
 	// Delete Post
 $('body').on('click','.delete-account',function(e){
