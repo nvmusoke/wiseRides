@@ -19,7 +19,8 @@ var PassengerInfo = new mongoose.Schema({
   cargoSpace: Boolean,
   lowRise: Boolean,
   stepAssistance: Boolean,
-	created: Date
+	created: Date,
+	auth0Id: String
 });
 
 var PassengerModel = mongoose.model('passenger', PassengerInfo);
