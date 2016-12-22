@@ -4,6 +4,7 @@ var	Schema = mongoose.Schema,
 
 var DriverInfo = new mongoose.Schema({
 	type: ObjectId,
+	driverId: String,
 	firstName: String,
 	lastName: String,
 	password: String,

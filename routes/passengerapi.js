@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
-var jwt = require('jsonwebtoken');
 var PassengerModel = require('../models/passenger');
 var Driver = require('../models/driver');
 var Trip = require('../models/trip');

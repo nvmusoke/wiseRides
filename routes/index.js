@@ -1,5 +1,6 @@
 var express = require('express');
 var passport = require('passport');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var router = express.Router();
 
 var env = {
@@ -76,9 +77,18 @@ router.get('/driver-settings',function(req, res){
     res.render('driver-settings');
   });
 
-router.get('/driver-profile-private',function(req, res){
-    res.render('driver-profile-private');
+router.get('/driver-profile-private', ensureLoggedIn, function(req, res){
+
+		//userId can now be accessed by req.user.sub
+		DriverModel.findById({ driverId: req.params.driverId }, '', function(err, driver){
+			if (err) console.log(err);
+			res.render('driver-profile-private', {
+				driver: driver
+			});
+			// console.log(req.user.passengerId);
+		});
   });
+
 
 router.get('/driver-profile-public',function(req, res){
     res.render('driver-profile-public');

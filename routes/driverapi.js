@@ -6,7 +6,7 @@ var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
 //GET all drivers
-router.get('/driver', function(req, res, next){
+router.get('/driver', ensureLoggedIn, function(req, res, next){
 	DriverModel.find({ driverId: req.user.aud }, '', function(err,driver){
 		if(err) console.error('Error getting drivers:', err);
 		// console.log(driver);
@@ -14,9 +14,9 @@ router.get('/driver', function(req, res, next){
 	});
 });
 
-//GET single passenger
+//GET single driver
 router.get('/driver/:driverId', function(req,res){
-	DriverModel.findById({ userId: req.user.driverId }, '', function(err, driver){
+	DriverModel.findById({ driverId: req.params.driverId }, '', function(err, driver){
 		if (err) console.log(err);
 		res.json(driver);
 		// console.log(req.user.passengerId);
