@@ -1,29 +1,31 @@
 var express = require('express');
 var router = express.Router();
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var PassengerModel = require('../models/passenger');
 var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
 // GET all passengers
-router.get('/', function(req, res, next) {
-	PassengerModel.find({}, '', function(err, allPassengers){
+router.get('/passenger', function(req, res, next) {
+	PassengerModel.find({ passengerId: req.user.aud }, '', function(err, passengers){
 		if(err) console.error('Error getting passenger:', err);
-		res.json(allPassengers);
+		res.json(passengers);
 	});
 });
 
 //GET single passenger
-router.get('/:passengerId', function(req,res){
-	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
+router.get('/passenger/:passengerId', function(req,res){
+	PassengerModel.findById({ userId: req.user.passengerId }, '', function(err, passenger){
 		if (err) console.log(err);
 		res.json(passenger);
+		// console.log(req.user.passengerId);
 	});
 });
 
 //POST a new passenger
 router.post('/', function(req, res, next){
-	console.log('new page route working');
-	console.log('user is: ', req.user);
+	// console.log('new page route working');
+	// console.log('user is: ', req.passenger);
 
 	var passengerInfo = {
 		firstName: req.body.firstName,
@@ -38,14 +40,13 @@ router.post('/', function(req, res, next){
 
 	var newPassenger = new PassengerModel(passengerInfo);
 		newPassenger.save(function(err,success){
-			console.log('New passenger created');
 			if(err) console.error(err);
 			res.redirect('/passenger-app-pg2');
 		});
 });
 
 // New passenger page 2
-router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next){
+router.put('/passenger/:passengerId', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		streetAddress: req.body.streetAddress,
@@ -60,13 +61,14 @@ router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next)
 
 	PassengerModel.findByIdAndUpdate(passengerId,updateInfo, function(err,passengerInfo){
 		if(err) console.error(err);
-		res.send('SUCCESS');
+		// res.send('SUCCESS');
 		res.redirect('/passenger-app-done');
+		// console.log(passengerInfo);
 	});
 });
 
 //PUT a change into passenger info
-router.put('/', function(req, res, next){
+router.put('/passenger/:passengerId', function(req, res, next){
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		firstName: req.body.firstName,

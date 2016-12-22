@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var DriverModel = require('../models/driver');
 var Driver = require('../models/driver');
 var Trip = require('../models/trip');
@@ -8,14 +9,14 @@ var Trip = require('../models/trip');
 router.get('/driver-profile-private', function(req, res, next){
 	DriverModel.find({}, '', function(err,driver){
 		if(err) console.error('Error getting drivers:', err);
-		console.log(driver);
+		// console.log(driver);
 		res.json(driver);
 	});
 });
 
 
 //POST a new driver
-router.post('/driver-app-pg1', function(req, res, next){
+router.post('/', function(req, res, next){
 	console.log('new driver created');
 	var driverInfo = {
 		firstName: req.body.firstName,
@@ -33,13 +34,13 @@ router.post('/driver-app-pg1', function(req, res, next){
 		console.log('New Driver Created!!');
 		if (err) console.log(err);
 
-		res.send('New Driver Created');
-		// res.redirect('/');
+		// res.send('New Driver Created');
+		res.redirect('/driver-app-pg2');
 	});
 });
 
 //PUT a change into driver info
-router.put('/driver/:driverId/driver-app-pg3', function(req, res, next){
+router.put('/driver/:driverId', function(req, res, next){
 	var driverId = req.params.driverId;
 	var updateInfo = {
 		profileImage: req.body.profileImage,
@@ -55,8 +56,8 @@ router.put('/driver/:driverId/driver-app-pg3', function(req, res, next){
 
 	DriverModel.findByIdAndUpdate(driverId,updateInfo, function(err,driverInfo){
 		if(err) console.error(err);
-		res.send('SUCCESS');
-		// res.redirect('/');
+		// res.send('SUCCESS');
+		res.redirect('/driver-app-pg3');
 	});
 });
 
