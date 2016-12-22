@@ -170,6 +170,9 @@ router.get('/passenger-schedule',function(req, res){
     res.render('passenger-schedule');
   });
 
+router.get('/passenger-schedule-built',function(req, res){
+    res.render('passenger-schedule-built');
+  });
 //ride request routes
 
 router.get('/new-ride-cancel',function(req, res){
