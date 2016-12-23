@@ -9,6 +9,7 @@ Technologies used:
   *mLab
  
 User stories:
+
   "EPIC: As a senior citizen I want to be able to get rides on my own schedule so that I can run errands and be a part of the community."
   "EPIC: As a driver I would like to donate some of my time to serving the elderly so that I can learn more about the demographic and give back to the community."
 
