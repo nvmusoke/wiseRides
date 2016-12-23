@@ -1,12 +1,3 @@
-wiseRides - a ride for the elderly and disabled
-
-please check the trello board for things that still need to be completed
-
-Testing merge
+A free, volunteer-based rideshare applicatoin for people over 65 years old and/or physically challenged.
 
 
-testing pull request
-try 2
-#wiseRides
-
-just pushing my branch. please ignore
