@@ -275,6 +275,9 @@ input[type='radio'] {
   margin-top: 10%;
   margin-bottom: 10%;
 }
+.faq{
+  max-height: 400px;
+}
 
 @media (max-width: 480px) {
 
