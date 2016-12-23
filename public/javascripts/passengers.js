@@ -134,18 +134,12 @@ function getNotifications(){
 	request.done(function(res){
 		res.notifications.forEach(function(notification, index){
 			$('#notifications').prepend([
-				'<li>',
-				'<div> Date: ',notification.date,'</div>',
-				'</li>',
-				'<li>',
+				'<div>',notification.name,'</div>',
+				'<div>',notification.date,'</div>',
+
 				'<div>',notification.time,'</div>',
-				'</li>',
-				'<li>',
 				'<div>',notification.pickUpAddress,'</div>',
-				'</li>',
-				'<li>',
 				'<div>',notification.dropOffAddress,'</div>',
-				'</li>'
 			].join(''));
 		});
 	});
