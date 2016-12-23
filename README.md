@@ -1,11 +1,17 @@
 A free volunteer-based rideshare application for people 65 and older and/or handicapped.
 
 Technologies used:
+  
   *Node.js
+  
   *Express
+  
   *auth0
+  
   *Bootstrap
+  
   *jquery
+  
   *mLab
  
 User stories:
