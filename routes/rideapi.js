@@ -24,6 +24,7 @@ router.get('/notifications',ensureLoggedIn, function(req,res,next){
 router.post('/requestride',function(req,res,next){
   // modify this object to have just the address key
   var rideInfo = {
+    name: req.body.name,
     date: req.body.date,
     time: req.body.time,
     pickUpAddress: req.body.pickUpAddress,

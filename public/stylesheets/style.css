@@ -334,6 +334,21 @@ input[type='radio'] {
     margin-bottom: 10%;
   }
 
+.navbar .pushNotification {
+  position: relative;
+}
+
+.num-notification {
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  width: 20px;
+  height: auto;
+  position: absolute;
+  bottom: 3px;
+  right: 1px;
+}
+
 
 /*End of media query*/
 }
