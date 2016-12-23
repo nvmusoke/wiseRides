@@ -112,13 +112,6 @@ router.get('/driver-schedule',function(req, res){
     res.render('driver-schedule');
   });
 
-router.get('/driver-schedule-builder',function(req, res){
-    res.render('driver-schedule-builder');
-  });
-
-router.get('/driver-schedule',function(req, res){
-    res.render('driver-schedule');
-  });
 
 //passenger application routes
 
@@ -170,9 +163,6 @@ router.get('/passenger-schedule',function(req, res){
     res.render('passenger-schedule');
   });
 
-router.get('/passenger-schedule-built',function(req, res){
-    res.render('passenger-schedule-built');
-  });
 //ride request routes
 
 router.get('/new-ride-cancel',function(req, res){
