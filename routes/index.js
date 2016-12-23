@@ -112,13 +112,6 @@ router.get('/driver-schedule',function(req, res){
     res.render('driver-schedule');
   });
 
-router.get('/driver-schedule-builder',function(req, res){
-    res.render('driver-schedule-builder');
-  });
-
-router.get('/driver-schedule',function(req, res){
-    res.render('driver-schedule');
-  });
 
 //passenger application routes
 

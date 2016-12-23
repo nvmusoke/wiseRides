@@ -19,6 +19,9 @@ h3 {
 input {
   margin-bottom: 20px;
 }
+li{
+  list-style: none;
+}
 
 .header-text {
   color: #FFFFFF;
@@ -103,6 +106,9 @@ input {
   font-size: 20px;
   margin-top: 5px;
   padding-left: 10px;
+}
+.dropdown-toggle{
+  border: 5px solid #DB7B14;
 }
 
 /* buttons */
@@ -268,6 +274,9 @@ input[type='radio'] {
   max-height: 90%;
   margin-top: 10%;
   margin-bottom: 10%;
+}
+.faq{
+  max-height: 400px;
 }
 
 @media (max-width: 480px) {

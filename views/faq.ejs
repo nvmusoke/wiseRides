@@ -1,10 +1,10 @@
 <% include partials/header %>
 <body class="tan-background">
-<% include partials/navbar %>
+<% include partials/passenger-navbar %>
 <header>
   <h2 class="purple-text">Frequently Asked Questions</h2>
 </header>
-<div class="pre-scrollable">
+<div class="pre-scrollable faq">
   <ul>
     <li><p class="purple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </li>
@@ -20,6 +20,11 @@
       </li>
   </ul>
 </div>
-
+<button class="btn-orange-default" onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
 <% include partials/footer %>
