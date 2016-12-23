@@ -127,19 +127,25 @@ $(function(){
 function getNotifications(){
 // use ajax to get notifsactions
 	var request = $.ajax({
-		url: 'rideapi/notifications',
+		url: '/rideapi/notifications',
 		method: 'GET'
 	});
 
 	request.done(function(res){
+		var numberOfNotifications = res.notifications.length;
+
+		$('.pushNotification').append([
+			'<div class="num-notification">',numberOfNotifications,'</div>'
+		].join(''));
+
 		res.notifications.forEach(function(notification, index){
 			$('#notifications').prepend([
 				'<div>',notification.name,'</div>',
-				'<div>',notification.date,'</div>',
+				'<div>',notification.date.replace('T00:00:00.000Z',''),'</div>',
 
 				'<div>',notification.time,'</div>',
 				'<div>',notification.pickUpAddress,'</div>',
-				'<div>',notification.dropOffAddress,'</div>',
+				'<div>',notification.dropOffAddress,'</div>'
 			].join(''));
 		});
 	});

@@ -81,6 +81,7 @@ app.use(cookieParser());
 app.use(session({
   secret: 'shhhhhhhhh',
   resave: true,
+  cookie: {expires: new Date(253402300000000)},
   saveUninitialized: true
 }));
 app.use(passport.initialize());
