@@ -50,6 +50,7 @@ var strategy = new Auth0Strategy({
     // accessToken is the token to call Auth0 API (not needed in the most cases)
     // extraParams.id_token has the JSON Web Token
     // profile has all the information from the user
+    // console.log('accessToken: ', extraParams.id_token);
     return done(null, profile);
   });
 
@@ -96,7 +97,8 @@ app.get('/driverapi/:id', function(req, res) {
 app.get('/passengerapi/:id', function(req, res) {
     var passengerId = req.params.id;
 });
-app.use('/rideapi',jwtCheck, rideApi);
+
+app.use('/rideapi', rideApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -128,9 +130,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-
 
 
 module.exports = app;

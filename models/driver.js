@@ -12,7 +12,7 @@ var DriverInfo = new mongoose.Schema({
 	email: String,
 	phoneNumber: String,
 	profileImage: String,
-	notifications: [{ date: Date, time: String, pickUpAdress: String, dropOffAddress: String }],
+	notifications: [{ date: Date, time: String, pickUpAddress: String, dropOffAddress: String }],
 	licensePlate: String,
 	make: String,
 	model: String,

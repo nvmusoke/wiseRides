@@ -2,24 +2,25 @@
 <body class="tan-background">
 <% include partials/passenger-navbar %>
 
-    <form class="form-inline" method="post" action="/rideapi">
+
+    <form class="form-inline" method="post" action="/rideapi/requestride">
 
       <label for="date" style="color:;">Date</label><br>
-      <input type="date" name="birthday" class="form-control width-control" method="post" id="birthday" placeholder="Date">
+      <input type="date" name="date" class="form-control width-control" method="post" id="birthday" placeholder="Date">
 
       <label for="date" style="color:;">Time</label><br>
-      <input type="time" name="usr_time" class="form-control width-control" method="post">
+      <input type="time" name="time" class="form-control width-control" method="post">
 
   <div class="form-group no-bottom-padding">
     <label for="firstName" style="color:;">Pick-up Location</label><br>
-    <input type="text" name="streetAddress" class="form-control width-control" method="post" placeholder="Street Address">
+    <input type="text" name="pickUpAddress" class="form-control width-control" method="post" placeholder="Street Address">
     <input type="text" name="zipCode" class="form-control width-control" method="post" placeholder="Zip Code">
   </div>
 
 
   <div class="form-group no-bottom-padding">
     <label for="firstName" style="color:;">Drop-off Location</label><br>
-    <input type="text" name="streetAddress" class="form-control width-control" method="post" placeholder="Street Address">
+    <input type="text" name="dropOffAddress" class="form-control width-control" method="post" placeholder="Street Address">
     <input type="text" name="zipCode" class="form-control width-control" method="post" placeholder="Zip Code">
   </div>
 

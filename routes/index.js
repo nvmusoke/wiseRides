@@ -52,7 +52,7 @@ router.get('/signin',function(req, res){
 
 // driver application routes
 
-router.get('/driver-app-pg1',function(req, res){
+router.get('/driver-app-pg1', ensureLoggedIn, function(req, res){
     res.render('driver-app-pg1');
   });
 
@@ -223,7 +223,8 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
-    res.redirect(req.session.returnTo || '/user');
+    // req.session.returnTo ||
+    res.redirect( '/signin');
   });
 
 
