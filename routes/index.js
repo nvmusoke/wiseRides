@@ -230,7 +230,8 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
-    res.redirect(req.session.returnTo || '/signin');
+    // req.session.returnTo ||
+    res.redirect( '/signin');
   });
 
 
