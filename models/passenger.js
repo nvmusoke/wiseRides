@@ -15,11 +15,12 @@ var PassengerInfo = new mongoose.Schema({
   phoneNumber: String,
   profileImage: String,
   notifications: Boolean,
-  wheelChairAccess: String,
-  cargoSpace: String,
-  lowRise: String,
-  stepAssistance: String,
-	created: Date
+  wheelChairAccess: Boolean,
+  cargoSpace: Boolean,
+  lowRise: Boolean,
+  stepAssistance: Boolean,
+	created: Date,
+	auth0Id: String
 });
 
 var PassengerModel = mongoose.model('Passenger', PassengerInfo);

@@ -1,0 +1,107 @@
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen"
+ href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+
+
+ <div class="well">
+   <div id="datetimepicker2" class="input-append">
+     <input data-format="MM/dd/yyyy HH:mm PP" type="text"></input>
+     <span class="add-on">
+       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+       </i>
+     </span>
+   </div>
+ </div>
+
+ <div class="container">
+   <button type="submit" class="btn btn-default submit">Submit</button>
+</div>
+
+
+<script type="text/javascript"
+ src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script type="text/javascript"
+ src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+</script>
+<script type="text/javascript"
+ src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+</script>
+<script type="text/javascript"
+ src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+</script>
+<script type="text/javascript">
+$.fn.datetimepicker.defaults = {
+maskInput: false,           // disables the text input mask
+pickDate: true,            // disables the date picker
+pickTime: true,            // disables de time picker
+pick12HourFormat: true,   // enables the 12-hour format time picker
+pickSeconds: false,         // disables seconds in the time picker
+startDate: -Infinity,      // set a minimum date
+endDate: Infinity          // set a maximum date
+};
+  $(function() {
+    $('#datetimepicker2').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
+  });
+</script>
+
+==================
+/*#landing{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+=================
+
+#signup-driver{
+  color:#FFF;
+  background: #DB7B14;
+  border: solid #FFF 2px;
+  margin: 25px 0;
+  font-family: 'Helvetica', sans-serif;
+  padding: 14px 95px;
+  border-radius: 50px;
+}
+#signup-pass{
+  color:#FFF;
+  background: #DB7B14;
+  border: solid #FFF 2px;
+  margin: 25px 0;
+  font-family: 'Helvetica', sans-serif;
+  padding: 14px 80px;
+  border-radius: 50px;
+}
+
+===============
+
+.pass-app-2{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* passenger application complete page*/
+.pass-done{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+===================
+
+/*.col-xs-12 {
+  top:50%;
+  left: 50%;
+  width: 100%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
+}*/

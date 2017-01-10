@@ -1,60 +1,132 @@
 $(function(){
+	console.log('loaded passenger.js');
 
-	// // Add User button click
-	//     $('#btnAddUser').on('click', addUser);
-	// function addUser(event) {
-	//     event.preventDefault();
-	//
-	//     // Super basic validation - increase errorCount variable if any fields are blank
-	//     var errorCount = 0;
-	//     $('#addUser input').each(function(index, val) {
-	//         if($(this).val() === '') { errorCount++; }
-	//     });
-	//
-	//     // Check and make sure errorCount's still at zero
-	//     if(errorCount === 0) {
-	//
-	//         // If it is, compile all user info into one object
-	//         var newUser = {
-	//             'username': $('#addUser fieldset input#inputUserName').val(),
-	//             'email': $('#addUser fieldset input#inputUserEmail').val(),
-	//             'fullname': $('#addUser fieldset input#inputUserFullname').val(),
-	//             'age': $('#addUser fieldset input#inputUserAge').val(),
-	//             'location': $('#addUser fieldset input#inputUserLocation').val(),
-	//             'gender': $('#addUser fieldset input#inputUserGender').val()
-	//         }
-	//
-	//         // Use AJAX to post the object to our adduser service
-	//         $.ajax({
-	//             type: 'POST',
-	//             data: newUser,
-	//             url: '/users/adduser',
-	//             dataType: 'JSON'
-	//         }).done(function( response ) {
-	//
-	//             // Check for successful (blank) response
-	//             if (response.msg === '') {
-	//
-	//                 // Clear the form inputs
-	//                 $('#addUser fieldset input').val('');
-	//
-	//                 // Update the table
-	//                 populateTable();
-	//
-	//             }
-	//             else {
-	//
-	//                 // If something goes wrong, alert the error message that our service returned
-	//                 alert('Error: ' + response.msg);
-	//
-	//             }
-	//         });
-	//     }
-	//     else {
-	//         // If errorCount is more than 0, error out
-	//         alert('Please fill in all fields');
-	//         return false;
-	//     }
-	// };
+function getNotifications(){
+// use ajax to get notifsactions
+	var request = $.ajax({
+		url: 'rideapi/notifications',
+		method: 'GET'
+	});
 
+	request.done(function(res){
+		var numberOfNotifications = res.notifications.length;
+		if (numberOfNotifications == 0){
+			$('#notifications').html('<h2 class="header-text purple-text" style="margin: 0; text-align: center;">No Notifications</h2>');
+		}
+
+		$('.pushNotification').append([
+			'<div class="num-notification">',numberOfNotifications,'</div>'
+		].join(''));
+
+		res.notifications.forEach(function(notification, index){
+			// $('#notifications').html('');
+			$('#notifications').prepend([
+				'<div>', '<br>',
+				'<div>',notification.name,'</div>',
+				'<div>',notification.date.replace('T00:00:00.000Z',''),'</div>',
+				'<div>',notification.time,'</div>',
+				'<div>',notification.pickUpAddress,'</div>',
+				'<div>',notification.dropOffAddress,'</div>',
+				'<button class="btn-accept-ride">','Accept Ride','</button>',
+				'</div>'
+			].join(''));
+		});
+	});
+// populate notifications in the dom
+
+}
+
+function addEventListeners(){
+
+	$('.nav-ride').on('click', function(e){
+		getNotifications();
+	});
+
+  $('body').on('click','a.edit-passenger',function(event){
+    event.preventDefault();
+    var $passenger = $(this).closest('.passenger');
+    var passengerId = $passenger.data('passengerid');
+    var firstName = $passenger.find('.firstName').text();
+    var lastName = $passenger.find('.lastName').text();
+		var email = $passenger.find('.email').text();
+
+    $passenger.html( [
+		'<li>',
+			'<div class="passenger" data-passengerid=',passengerId,'>',
+	      '<input class="edit-firstName" name="title" value="',firstName,'"/>',
+	      '<input class="edit-lastName" name="content" value="',lastName,'"/>',
+				'<input class="edit-email" name="content" value="',email,'"/>',
+			'</div>',
+		'</li>',
+		'<button class="send-update">Update</button>'
+    ].join('') );
+  });
+
+$('body').on('click','.send-update',function(e){
+  e.preventDefault();
+  var $passenger = $(this).closest('.passenger');
+  var firstName = $passenger.find('.edit-firstName').val();
+  var lastName = $passenger.find('.edit-lastName').val();
+	var email = $passenger.find('.edit-email').val();
+  var passengerId = $passenger.data('passengerid');
+  var updatePassenger = $.ajax({
+    url: '/passengerapi',
+    method: 'PUT',
+    data: {
+      firstName: firstName,
+      lastName: lastName,
+			email: email,
+      passengerId: passengerId
+    }
+  });
+
+  updatePassenger.done(function(res){
+    console.log(res);
+    $passenger.html( [
+			'<li>',
+        '<div class="passenger" data-passengerid=',passengerId,'>',
+            '<section class="firstName">',firstName,'</section>',
+            '<section class="lastName">',lastName,'</section>',
+            '<section class="email">',email,'</section>',
+            '<a class="edit-passenger" href="/passenger-profile-private">Edit </a>',
+            '<a class="delete-account" href="#">Delete</a>',
+          '</div>',
+        '</li>'
+    ].join('') );
+  });
+
+  updatePassenger.fail(function(err){
+    console.error('There was an error: ', err);
+  });
+});
+
+	// Delete Post
+$('body').on('click','.delete-account',function(e){
+	var $passenger = $(this).closest('.passenger');
+	var passengerId = $passenger.data('passengerid');
+	if(!confirm('Are you sure you want to delete this account??')) return;
+	var removePassenger = $.ajax({
+		method: 'DELETE',
+		url: '/passengerapi',
+		data: { passengerId: passengerId }
+	});
+
+		removePassenger.done(function(response){
+			$passenger.closest('li').remove();
+			console.log('Passenger remove success: ', response);
+		});
+
+		removePassenger.fail(function(error){
+			console.error('Passenger remove fail: ', error);
+		});
+	});
+};
+
+function main(){
+	getNotifications();
+  addEventListeners();
+  // loadPassengers();
+	// loadOnePassenger();
+}
+	main();
 });

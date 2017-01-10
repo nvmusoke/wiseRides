@@ -1,5 +1,45 @@
 <% include partials/header %>
-<% include partials/navbar %>
+<body class="tan-background">
+<% include partials/driver-navbar %>
 
+<img id="bettywhite" src="/images/passenger-photo.jpg" alt="Driver Name">
+<h3 class="orange-text"><strong>Driver Name</strong></h3>
+<h4 class="orange-text">Phone: 512-111-2345</h4>
+<br>
+  <div class="purple-text">
+    <h3 class="purple-text">Accessibility Options:</h3>
+    <div class="col-xs-offset-2" style="text-align: left; color: black;">
+        <div class="checkbox">
+          <label>
+            <input class="box" type="checkbox" value="">
+            <h3 class="checkbox-text purple-text">Wheelchair accessible</h3>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input class="box" type="checkbox" value="">
+            <h3 class="checkbox-text purple-text">Cargo space for medical supplies</h3>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input class="box" type="checkbox" value="">
+            <h3 class="checkbox-text purple-text">Low-rise vehicle</h3>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input class="box no-bottom-padding" type="checkbox" value="">
+            <h3 class="checkbox-text purple-text">Step assistance</h3>
+          </label>
+        </div>
+  </div>
+	<!-- add /driver-app-pg1 to routes after confirmation email is recieved -->
+  <a class="btn-orange-default btn-text" style="margin-top: 0;" href="#" role="button">Edit Profile</a><br><br>
 
+	<div class="driver">
+		
+	</div>
+
+</body>
 <% include partials/footer %>

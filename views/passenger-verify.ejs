@@ -1,17 +1,18 @@
 <% include partials/header %>
-<div class="passVerify">
-<div class="col-xs-12 col-md-8">
+<body class="purple-background">
 
-  <h2>Are you 65 years of age or older?</h2>
-    <form class="age-verify" method="post">
-      <div onClick="window.location = '/passengerapp_pg1';">
-        <input type="radio" style="pointer-events:none;"> Yes
+<div class="col-xs-12 col-md-8 verify">
+
+  <h2 class="orange-text">Are you 65 years of age or older?</h2>
+    <form method="post">
+      <div onClick="window.location = '/passenger-app-pg1';">
+        <h3><input type="radio" style="pointer-events:none;"> Yes </h3>
       </div>
-      <div onClick="window.location = '/passengerno';">
-        <input type="radio" style="pointer-events:none;"> No
+      <div class="age-yes" onClick="window.location = '/passenger-error';">
+        <h3><input type="radio" style="pointer-events:none;"> No </h3>
       </div>
     </form>
-  </div>
+
 </div>
 <script type="text/javascript" src="javascripts/riderverify.js"></script>
 <% include partials/footer %>

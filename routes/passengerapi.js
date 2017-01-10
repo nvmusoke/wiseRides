@@ -1,31 +1,38 @@
 var express = require('express');
 var router = express.Router();
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var PassengerModel = require('../models/passenger');
 var Driver = require('../models/driver');
 var Trip = require('../models/trip');
 
-// GET all passengers
-router.get('/passenger', function(req, res, next) {
-	PassengerModel.find({}, '', function(err,passenger){
-		console.log('passenger model', passenger);
-		if(err) console.error('Error getting passenger:', err);
 
-		res.json(passenger);
+// GET all passengers
+router.get('/passenger', ensureLoggedIn, function(req, res, next) {
+	PassengerModel.find({ passengerId: req.user.aud }, '', function(err, passengers){
+		if(err) console.error('Error getting passenger:', err);
+		res.json(passengers);
 	});
 });
 
 //GET single passenger
 router.get('/passenger/:passengerId', function(req,res){
-	PassengerModel.findById(req.params.passengerId, '', function(err, passenger){
-		if (err) console.log(err);
+	PassengerModel.findById({ userId: req.user.passengerId }, '', function(err, passenger){
 
+		if (err) console.log(err);
 		res.json(passenger);
+		// console.log(req.user.passengerId);
 	});
 });
 
-//POST  a new passenger
-router.post('/passenger-app-pg1', function(req, res, next){
-	console.log('new page route working');
+//POST a new passenger
+router.post('/', function(req, res, next){
+	// console.log('new page route working');
+
+	// console.log('user is: ', req.user);
+
+	// console.log('user is: ', req.passenger);
+
+
 	var passengerInfo = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -34,21 +41,21 @@ router.post('/passenger-app-pg1', function(req, res, next){
 		email: req.body.email,
 		phoneNumber: req.body.phoneNumber,
 		notifications: req.body.notifications
+	//	auth0Id: req.user.id
 	};
 
 	var newPassenger = new PassengerModel(passengerInfo);
+		newPassenger.save(function(err,success){
 
-	newPassenger.save(function(err,success){
-		console.log('New passenger created');
-		if(err) console.error(err);
-		res.send('New Passenger Created');
-		// res.redirect('/');
-	});
+			if(err) console.error(err);
+			res.redirect('/passenger-app-pg2');
+		});
 });
 
 // New passenger page 2
-router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next){
-	console.log('new passenger updated by :id');
+
+router.put('/passenger/:passengerId', function(req, res, next){
+
 	var passengerId = req.params.passengerId;
 	var updateInfo = {
 		streetAddress: req.body.streetAddress,
@@ -63,7 +70,9 @@ router.put('/passenger/:passengerId/passenger-app-pg2', function(req, res, next)
 
 	PassengerModel.findByIdAndUpdate(passengerId,updateInfo, function(err,passengerInfo){
 		if(err) console.error(err);
-		res.send('SUCCESS');
+		// res.send('SUCCESS');
+		res.redirect('/passenger-app-done');
+		// console.log(passengerInfo);
 	});
 });
 
@@ -94,16 +103,10 @@ router.put('/passenger/:passengerId', function(req, res, next){
 	});
 });
 
-router.put("/passenger-app-pg2", function (req, res, next) {
-
-});
-
-
-router.delete('/passenger/:passengerId', function(req, res, next){
-	var passengerId = req.params.passengerId;
+router.delete('/', function(req, res, next){
+	var passengerId = req.body.passengerId;
 	PassengerModel.findByIdAndRemove(passengerId, function(err,passengerInfo){
 		if(err) console.error(err);
-
 		res.send('SUCCESS');
 	})
 });

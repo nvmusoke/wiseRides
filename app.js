@@ -19,6 +19,7 @@ var routes = require('./routes/index');
 var user = require('./routes/user');
 var passengerApi = require('./routes/passengerapi');
 var driverApi = require('./routes/driverapi');
+var rideApi = require('./routes/rideapi');
 
 var readline = require('readline');
 var google = require('googleapis');
@@ -34,21 +35,22 @@ var session = require('express-session');
 
 
 // adding jwt to link user sign in Id with database
-// var jwtCheck = jwt({
-//   secret: process.env.AUTH0_CLIENT_SECRET,
-//   audience: process.env.AUTH0_CLIENT_ID
-// });
+var jwtCheck = jwt({
+  secret: process.env.AUTH0_CLIENT_SECRET,
+  audience: process.env.AUTH0_CLIENT_ID
+});
 
 // This will configure Passport to use Auth0
 var strategy = new Auth0Strategy({
     domain:       process.env.AUTH0_DOMAIN,
     clientID:     process.env.AUTH0_CLIENT_ID,
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    callbackURL:  process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000'
+    callbackURL:  process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
   }, function(accessToken, refreshToken, extraParams, profile, done) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
     // extraParams.id_token has the JSON Web Token
     // profile has all the information from the user
+    // console.log('accessToken: ', extraParams.id_token);
     return done(null, profile);
   });
 
@@ -79,6 +81,7 @@ app.use(cookieParser());
 app.use(session({
   secret: 'shhhhhhhhh',
   resave: true,
+  cookie: {expires: new Date(253402300000000)},
   saveUninitialized: true
 }));
 app.use(passport.initialize());
@@ -89,7 +92,14 @@ app.use('/', routes);
 app.use('/user', user);
 app.use('/passengerapi', passengerApi);
 app.use('/driverapi', driverApi);
+app.get('/driverapi/:id', function(req, res) {
+    var driverId = req.params.id;
+});
+app.get('/passengerapi/:id', function(req, res) {
+    var passengerId = req.params.id;
+});
 
+app.use('/rideapi', rideApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -121,9 +131,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-
 
 
 module.exports = app;

@@ -3,6 +3,8 @@ var	Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
 
 var DriverInfo = new mongoose.Schema({
+	type: ObjectId,
+	driverId: String,
 	firstName: String,
 	lastName: String,
 	password: String,
@@ -10,19 +12,19 @@ var DriverInfo = new mongoose.Schema({
 	email: String,
 	phoneNumber: String,
 	profileImage: String,
-	notifications: Boolean,
+	notifications: [{ name: String, date: Date, time: String, pickUpAddress: String, dropOffAddress: String }],
 	licensePlate: String,
 	make: String,
 	model: String,
 	color: String,
-	wheelChairAccess: String,
-	cargoSpace: String,
-	lowRise: String,
-	stepAssistance: String,
+	wheelChairAccess: Boolean,
+	cargoSpace: Boolean,
+	lowRise: Boolean,
+	stepAssistance: Boolean,
 	created: Date
 });
 
-var DriverModel = mongoose.model('driver', DriverInfo);
+var DriverModel = mongoose.model('Driver', DriverInfo);
 
 // Make this available to our other files
 module.exports = DriverModel;

@@ -1,6 +1,24 @@
 <% include partials/header %>
-<% include partials/navbar %>
+<body class="tan-background">
+<% include partials/passenger-navbar %>
 
+<h2 class="orange-text">Your Next Ride</h2>
+  <ul class="purple-text" style="text-align: left">
+    <li>Today with: **driver first name** </li>
+    <li>Pick up time between: </li>
+    <li>Pick up at: </li>
+    <li>Drop off at: </li>
+  </ul>
+<div class="passenger-options purple-text">
+  <a class="btn btn-orange-default btn-lg"  href="/driver-profile-public" role="button">View Driver Profile</a><br><br>
+  <a class="btn btn-orange-default btn-lg"  href="/passenger-ride-without-appt" role="button">Cancel this Ride</a><br><br>
 
+  (At least 30 minutes prior to ride)
+</div>
+<div class="purple-text">
+<a href="/" id="arrowbutton"><img class="arrow-btn" src="images/backarrow.png" alt="Back Arrow"></a>
+  # of # Rides
+<a href="/" id="arrowbutton"><img class="arrow-btn" src="images/nextarrow.png" alt="Next Arrow"></a>
+</div>
 
 <% include partials/footer %>

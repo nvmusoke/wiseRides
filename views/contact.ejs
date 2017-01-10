@@ -1,6 +1,16 @@
 <% include partials/header %>
-<% include partials/navbar %>
+<body class="tan-background">
+<form class="form-inline">
+  <a href="mailto:support@wiserides.org" target="_top">support@wiserides.org</a><br>
+  <a href="tel: 555-555-5555" target="_top">555-555-5555</a>
+  <input type="text" name="firstName" class="form-control" method="post" id="name" placeholder="Name">
+  <input type="email" name="email" class="form-control" method="post" id="email" placeholder="Email Address">
+  <textarea name="name" rows="8" cols="80"></textarea>
 
-
-
+  <button class="btn-orange-default" onclick="goBack()">Go Back</button>
+  <script>
+  function goBack() {
+      window.history.back();
+  }
+  </script>
 <% include partials/footer %>

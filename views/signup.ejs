@@ -1,13 +1,14 @@
 <% include partials/header %>
-
-<div class="row">
+<body class="purple-background">
   <div class="col-xs-12 col-md-8">
     <div class="form-group">
-      <h5>Welcome to Wise Rides!</h5>
-        <a href="/driver-app-pg1"><button type="submit" class="btn btn-default">Driver</button></a>
-        <a href="/passenger-verify"><button type="submit" class="btn btn-default">Passenger</button></a>
+      <div class="signup-text">
+        <h3 class="white-text">Welcome to Wise Rides!</h3>
+        <p class="white-text">Please select if you would like to sign up as a driver or a passenger.</p>
+      </div>
+      <a class="btn-lg btn-orange-lg" href="/driver-app-pg1" role="button">Driver</a><br>
+      <a class="btn-lg btn-orange-lg" href="/passenger-verify" role="button">Passenger</a><br>
     </div>
   </div>
-</div>
-
+<div id="root" style="width: 280px; margin: 40px auto; padding: 10px;"></div>
 <% include partials/footer %>

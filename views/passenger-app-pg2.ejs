@@ -1,23 +1,56 @@
 <% include partials/header %>
+<body class="purple-background">
 <div class="pass-app-2">
   <div class="col-xs-12 col-md-8">
+    <div class="header-text">
     <p>Almost done! Now we just need a little more information about yourself and your needs.</p>
-    <div class="profileImage">
+    </div>
+      <div class="profileImage">
       Profile Image
       <img src="">
     </div>
-    <form class="specs" method="post">
-      <div>
-      Check all vehicle specifications that apply to your needs
-      </div>
-      <input type="checkbox" name="" value="">Wheelchair Accessable</input><br>
-      <input type="checkbox" name="" value="">Cargo space for medical supplies</input><br>
-      <input type="checkbox" name="" value="">Low-rise vehicle</input><br>
-      <input type="checkbox" name="" value="">Step Assistance</input><br>
 
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    <form method="put" class="specs" action="/passenger-app-done">
+      <div>
+      	<h3 class="title">Check all vehicle specifications that apply to your needs
+      </div>
+
+      <div class="col-xs-offset-2" style="text-align: left; color: black;">
+          <div class="checkbox">
+            <label>
+              <input class="box" type="checkbox" value="">
+              <h3 class="checkbox-text white-text">Wheelchair accessible</h3>
+            </label>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input class="box" type="checkbox" value="">
+              <h3 class="checkbox-text white-text">Cargo space for medical supplies</h3>
+            </label>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input class="box" type="checkbox" value="">
+              <h3 class="checkbox-text white-text">Low-rise vehicle</h3>
+            </label>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input class="box no-bottom-padding" type="checkbox" value="">
+              <h3 class="checkbox-text white-text">Step assistance</h3>
+            </label>
+          </div>
+
+
   </div>
+  <button type="submit" value="save" class="btn-orange-lg" type="submit" value="save">Submit</button>
+</form>
+</div>
+
+
 </div>
 
 

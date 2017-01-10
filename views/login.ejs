@@ -1,9 +1,10 @@
 <% include partials/header %>
+<body>
 
 <div id="root" style="width: 280px; margin: 40px auto; padding: 10px;"></div>
 <script type="text/javascript">
 var lock = new Auth0Lock('<%= env.AUTH0_CLIENT_ID%>', '<%= env.AUTH0_DOMAIN %>', { auth: {
-      redirectUrl: 'http://localhost:3000'
+      redirectUrl: 'http://localhost:3000/callback'
     , responseType: 'code'
     , params: {
       scope: 'openid name email picture'
