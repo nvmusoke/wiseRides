@@ -113,13 +113,24 @@ li{
 
 /* buttons */
 
+.btn-accept-ride {
+  color: #FFF;
+  background-color: #DB7B14;
+  border: solid #FFF 2px;
+  font-family: 'Helvetica', sans-serif;
+  padding: 10px 10px;
+  border-radius: 30px;
+  display: block;
+  width: 35%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .btn-text {
   color: #FFF;
   font-size: 16px;
   margin: 20px 5px;
 }
-
-
 
 .btn-orange-lg {
   color: #FFF;
@@ -173,11 +184,12 @@ li{
   padding: 14px 95px;
   border-radius: 50px;
 }
+
 .arrow-btn {
   background: #DB7B14;
   width: 50px;
   height: 50px;
-  padding: 10px 10px;
+  padding: 6px 6px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
@@ -275,6 +287,9 @@ input[type='radio'] {
   margin-top: 10%;
   margin-bottom: 10%;
 }
+.faq{
+  max-height: 400px;
+}
 
 @media (max-width: 480px) {
 
@@ -331,6 +346,20 @@ input[type='radio'] {
     margin-bottom: 10%;
   }
 
-
 /*End of media query*/
+}
+
+.navbar .pushNotification {
+  position: relative;
+}
+
+.num-notification {
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  width: 20px;
+  height: auto;
+  position: absolute;
+  bottom: 3px;
+  right: 1px;
 }

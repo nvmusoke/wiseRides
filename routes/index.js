@@ -2,6 +2,7 @@ var express = require('express');
 var passport = require('passport');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var router = express.Router();
+var DriverModel = require('../models/driver');
 
 var env = {
   AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -112,13 +113,6 @@ router.get('/driver-schedule',function(req, res){
     res.render('driver-schedule');
   });
 
-router.get('/driver-schedule-builder',function(req, res){
-    res.render('driver-schedule-builder');
-  });
-
-router.get('/driver-schedule',function(req, res){
-    res.render('driver-schedule');
-  });
 
 //passenger application routes
 
@@ -170,9 +164,6 @@ router.get('/passenger-schedule',function(req, res){
     res.render('passenger-schedule');
   });
 
-router.get('/passenger-schedule-built',function(req, res){
-    res.render('passenger-schedule-built');
-  });
 //ride request routes
 
 router.get('/new-ride-cancel',function(req, res){
@@ -233,7 +224,8 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
-    res.redirect(req.session.returnTo || '/signin');
+    // req.session.returnTo ||
+    res.redirect( '/signin');
   });
 
 
